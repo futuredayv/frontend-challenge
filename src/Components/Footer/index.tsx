@@ -23,7 +23,9 @@ const footerMenu: MenuLink[] = [
 ]
 
 
-export const Footer = (props: IFooter.IProps): JSX.Element => (
+export const Footer: React.FunctionComponent<IFooter.IProps> = (
+	props: IFooter.IProps
+): JSX.Element => (
 	<footer>
 		<div className="footer__menu">
 			{footerMenu.map(({name, path}, i) => (

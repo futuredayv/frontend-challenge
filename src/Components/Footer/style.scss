@@ -1,3 +1,17 @@
-.Footer {
-    
+
+@import '../../Styles/variables.scss';
+
+footer {
+    background-color: $secondary-color;
+    padding: 32px 0;
+
+    .menu-link {
+        padding: 0 8px;
+        font-family: raleway;
+        border-right: 1px solid $white-07;
+
+        &:last-child {
+            border: none;
+        }
+    }
 }

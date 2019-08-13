@@ -10,7 +10,7 @@ import './index.scss';
 
 //#region Interface Imports
 import { IHomePage, IStore } from '@Interfaces';
-import { Heading } from '@Components';
+import { Heading, Footer } from '@Components';
 import { HomeActions } from '@Actions';
 //#endregion Interface Imports
 
@@ -23,6 +23,7 @@ export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState
 		return (
 			<>
 				<Heading text="World!" />
+				<Footer />
 			</>
 		);
 	}
