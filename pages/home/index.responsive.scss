@@ -1,21 +1,25 @@
 
-@media (min-width: 576px) { }
+#__next {
 
-
-@media (min-width: 768px) {
-
-    .container {
-        width: 736px;
+    @media (min-width: 576px) { }
+    
+    
+    @media (min-width: 768px) {
+    
+        .container {
+            margin: 0 auto;
+            width: 736px;
+        }
     }
-}
-
-
-@media (min-width: 992px) {
-
-    .container {
-        width: 960px;
+    
+    
+    @media (min-width: 992px) {
+    
+        .container {
+            width: 960px;
+        }
     }
+    
+    
+    @media (min-width: 1200px) { }
 }
-
-
-@media (min-width: 1200px) { }

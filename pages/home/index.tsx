@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 //#endregion Global Imports
 
+//#region Local Imports
+import './index.scss';
+//#endregion Local Imports
+
 //#region Interface Imports
 import { IHomePage, IStore } from '@Interfaces';
 import { Heading } from '@Components';

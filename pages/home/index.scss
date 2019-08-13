@@ -1,6 +1,13 @@
 
+@import 'index.responsive.scss';
+
+
 // Global Styles
 
+body {
+    margin: 0;
+}
+
 .container {
-    margin: 0 auto;
+    margin: 0 16px;
 }
