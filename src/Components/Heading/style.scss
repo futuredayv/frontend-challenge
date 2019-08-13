@@ -4,7 +4,7 @@
 	position: relative;
 	z-index: 1;
 	background-color: $primary-color;
-	box-shadow: 0 0 40px $black-02;
+	box-shadow: 0 0 20px 10px $black-05;
 
 	> .container {
 		display: flex;
@@ -43,7 +43,7 @@
 .topbar__heading {
     padding: 16px 0;
     background-color: $secondary-color;
-	box-shadow: 0 0 40px $black-02;
+	box-shadow: 0 0 40px 10px $black-05;
 
 	&__text {
 		font-size: 24px;
