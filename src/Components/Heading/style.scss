@@ -1,50 +1,54 @@
-
 @import '../../Styles/variables.scss';
 
-#topbar {
-    background-color: $primary-color;
+.topbar__main {
+	position: relative;
+	z-index: 1;
+	background-color: $primary-color;
+	box-shadow: 0 0 40px $black-02;
 
-    > .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px 0;
+	> .container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 16px 0;
 
-        nav {
-            display: flex;
+		.brand {
+			position: relative;
+			z-index: 1;
+			font-size: 32px;
+			font-weight: bold;
+			color: #fff;
+		}
 
-            .menu-item {
-                padding: 8px 16px;
-                color: #fff;
-                margin: 0 16px;
-    
-                &:last-child {
-                    margin-right: 0;
-                }
-    
-                &.cta {
-                    background-color: $secondary-color;
-                }
-            }
-        }
+		nav {
+			display: flex;
 
-    }
+			.menu-item {
+				padding: 8px 16px;
+				color: #fff;
+				margin: 0 16px;
+
+				&:last-child {
+					margin-right: 0;
+				}
+
+				&.cta {
+					background-color: $secondary-color;
+				}
+			}
+		}
+	}
 }
 
-.brand {
-    font-size: 32px;
-    font-weight: bold;
-    color: #fff;
-}
-
-.heading {
+.topbar__heading {
     padding: 16px 0;
     background-color: $secondary-color;
+	box-shadow: 0 0 40px $black-02;
 
-    &__text {
-        font-size: 24px;
-        font-weight: bold;
-        font-family: raleway;
-        color: #fff;
-    }
+	&__text {
+		font-size: 24px;
+		font-weight: bold;
+		font-family: raleway;
+		color: #fff;
+	}
 }

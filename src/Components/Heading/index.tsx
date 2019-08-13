@@ -14,18 +14,20 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 	public render(): JSX.Element {
 		return (
 			<section id="topbar">
-				<div className="container">
-					<div className="brand">DEMO Streaming</div>
+				<div className="topbar__main">
+					<div className="container">
+						<div className="brand">DEMO Streaming</div>
 
-					<nav>
-						<div className="menu-item">Login</div>
-						<div className="menu-item cta">Start Your Free Trial</div>
-					</nav>
+						<nav>
+							<div className="menu-item">Login</div>
+							<div className="menu-item cta">Start Your Free Trial</div>
+						</nav>
+					</div>
 				</div>
 
-				<div className="heading">
+				<div className="topbar__heading">
 					<div className="container">
-						<div className="heading__text">{this.props.text}</div>
+						<div className="topbar__heading__text">{this.props.title}</div>
 					</div>
 				</div>
 			</section>
