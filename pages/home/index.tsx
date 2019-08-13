@@ -19,10 +19,26 @@ export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState
 		super(props);
 	}
 
+	pages = [
+		{
+			name: 'Series',
+			desc: 'Popular Series',
+			img: 'sherlock.jpg',
+			routerLink: '/series',
+		},
+		{
+			name: 'Movies',
+			desc: 'Popular Movies',
+			img: 'sicario.jpg',
+			routerLink: '/movies',
+		},
+	];
+
 	public render(): JSX.Element {
 		return (
 			<Layout title="Popular Titles">
-				Hello!
+				{/* {this.pages.map(({name, desc, img, routerLink}, i) => (
+				))} */}
 			</Layout>
 		);
 	}
