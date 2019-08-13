@@ -13,11 +13,22 @@ import { IHeading } from '@Interfaces';
 export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 	public render(): JSX.Element {
 		return (
-			<div className="heading">
+			<section id="topbar">
 				<div className="container">
-					<div className="heading__text">{this.props.text}</div>
+					<div className="brand">DEMO Streaming</div>
+
+					<nav>
+						<div className="menu-item">Login</div>
+						<div className="menu-item cta">Start Your Free Trial</div>
+					</nav>
 				</div>
-			</div>
+
+				<div className="heading">
+					<div className="container">
+						<div className="heading__text">{this.props.text}</div>
+					</div>
+				</div>
+			</section>
 		);
 	}
 }

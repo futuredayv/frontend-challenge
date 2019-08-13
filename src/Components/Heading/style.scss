@@ -1,7 +1,43 @@
 
+#topbar {
+    background-color: #29d;
+
+    > .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 0;
+
+        nav {
+            display: flex;
+
+            .menu-item {
+                padding: 8px 16px;
+                color: #fff;
+                margin: 0 16px;
+    
+                &:last-child {
+                    margin-right: 0;
+                }
+    
+                &.cta {
+                    background-color: #222;
+                }
+            }
+        }
+
+    }
+}
+
+.brand {
+    font-size: 32px;
+    font-weight: bold;
+    color: #fff;
+}
+
 .heading {
     padding: 16px 0;
-    background-color: #29d;
+    background-color: #222;
 
     &__text {
         font-size: 24px;
