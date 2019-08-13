@@ -7,4 +7,8 @@ declare module IFooter {
   
     }
 
+    export interface MenuLink {
+        name: string;
+        path: string;
+    };
 }

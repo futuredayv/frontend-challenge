@@ -33,4 +33,30 @@ footer {
         margin: 16px 0;
     }
 
+    .footer__backlinks {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 32px 0;
+
+        .social,
+        .marketplace {
+            display: flex;
+        }
+
+        .icon {
+            width: 24px;
+            height: 24px;
+            margin: 0 8px;
+        }
+
+        .badge {
+            margin: 0 8px;
+
+            &:last-child {
+                height: 40px;
+            }
+        }
+    }
+
 }
