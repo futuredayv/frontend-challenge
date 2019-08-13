@@ -21,10 +21,9 @@ export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState
 
 	public render(): JSX.Element {
 		return (
-			<div className="title">
-				Hello!
+			<>
 				<Heading text="World!" />
-			</div>
+			</>
 		);
 	}
 }

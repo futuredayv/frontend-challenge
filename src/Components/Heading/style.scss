@@ -1,6 +1,8 @@
 
+@import '../../Styles/variables.scss';
+
 #topbar {
-    background-color: #29d;
+    background-color: $primary-color;
 
     > .container {
         display: flex;
@@ -21,7 +23,7 @@
                 }
     
                 &.cta {
-                    background-color: #222;
+                    background-color: $secondary-color;
                 }
             }
         }
@@ -37,7 +39,7 @@
 
 .heading {
     padding: 16px 0;
-    background-color: #222;
+    background-color: $secondary-color;
 
     &__text {
         font-size: 24px;
