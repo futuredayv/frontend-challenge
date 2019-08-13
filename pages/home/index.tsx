@@ -10,7 +10,7 @@ import './index.scss';
 
 //#region Interface Imports
 import { IHomePage, IStore } from '@Interfaces';
-import { Heading, Footer } from '@Components';
+import { Layout } from '@Components';
 import { HomeActions } from '@Actions';
 //#endregion Interface Imports
 
@@ -21,10 +21,9 @@ export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState
 
 	public render(): JSX.Element {
 		return (
-			<>
-				<Heading text="World!" />
-				<Footer />
-			</>
+			<Layout title="Popular Titles">
+				Hello!
+			</Layout>
 		);
 	}
 }
