@@ -5,6 +5,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 //#endregion Global Imports
 
 //#region Local Imports
+import { MoviesActions } from '@Actions'
 import './style.scss';
 //#endregion Local Imports
 
@@ -33,8 +34,8 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 const mapStateToProps = (state: IMovies.IState) => state;
 
-// const mapDispatchToProps = (dispatch: Dispatch) => (
-// );
+const mapDispatchToProps = (dispatch: Dispatch) => (
+	bindActionCreators(MoviesActions, dispatch)
+);
 
-export default connect(mapStateToProps)(Movies);
-
+export default connect(mapStateToProps, mapDispatchToProps)(Movies);
