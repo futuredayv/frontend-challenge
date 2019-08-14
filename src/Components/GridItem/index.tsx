@@ -8,9 +8,6 @@ import './style.scss';
 import { IGridItem } from '@Interfaces';
 //#endregion Interface Imports
 
-// renderGridItem(model) {
-// }
-
 export const GridItem = ({
 	name,
 	desc,
