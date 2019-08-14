@@ -1,5 +1,5 @@
 //#region Interface Imports
-import { IHomePage } from '@Interfaces';
+import { IHomePage, IMoviesPage } from '@Interfaces';
 //#endregion Interface Imports
 
 export interface IStore {

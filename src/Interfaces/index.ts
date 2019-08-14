@@ -1,4 +1,5 @@
 // PAGE INTERFACES
+export { IMovies } from '@Interfaces/Pages/Movies.d.ts';
 export { IApp } from '@Interfaces/Pages/App.d.ts';
 export { IHomePage } from '@Interfaces/Pages/Home.d.ts';
 
