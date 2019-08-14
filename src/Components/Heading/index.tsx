@@ -13,8 +13,8 @@ import { IHeading } from '@Interfaces';
 export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 	public render(): JSX.Element {
 		return (
-			<section id="topbar">
-				<div className="topbar__main">
+			<header>
+				<div className="header__main">
 					<div className="container">
 						<div className="brand">DEMO Streaming</div>
 
@@ -25,12 +25,12 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 					</div>
 				</div>
 
-				<div className="topbar__heading">
+				<div className="header__sub">
 					<div className="container">
-						<div className="topbar__heading__text">{this.props.title}</div>
+						<div className="header__sub__title">{this.props.title}</div>
 					</div>
 				</div>
-			</section>
+			</header>
 		);
 	}
 }

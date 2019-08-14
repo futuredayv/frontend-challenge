@@ -22,4 +22,10 @@ a {
 
 .container {
     margin: 0 16px;
+
+    .grid-area {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -16px;
+    }
 }

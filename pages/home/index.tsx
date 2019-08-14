@@ -10,11 +10,14 @@ import './index.scss';
 
 //#region Interface Imports
 import { IHomePage, IStore } from '@Interfaces';
-import { Layout } from '@Components';
+import { Layout, GridItem } from '@Components';
 import { HomeActions } from '@Actions';
 //#endregion Interface Imports
 
-export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState> {
+export class HomePage extends React.Component<
+	IHomePage.IProps,
+	IHomePage.IState
+> {
 	constructor(props: IHomePage.IProps) {
 		super(props);
 	}
@@ -37,8 +40,11 @@ export class HomePage extends React.Component<IHomePage.IProps, IHomePage.IState
 	public render(): JSX.Element {
 		return (
 			<Layout title="Popular Titles">
-				{/* {this.pages.map(({name, desc, img, routerLink}, i) => (
-				))} */}
+				<div className="grid-area">
+					{this.pages.map((page, i) => (
+						<GridItem key={i} {...page} />
+					))}
+				</div>
 			</Layout>
 		);
 	}

@@ -13,7 +13,7 @@ export const Layout = (props: ILayout.IProps): JSX.Element => {
 	return (
 		<>
 			<Heading title={title} />
-			{children}
+			<main className="container">{children}</main>
 			<Footer />
 		</>
 	);

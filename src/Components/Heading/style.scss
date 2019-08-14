@@ -1,6 +1,6 @@
 @import '../../Styles/variables.scss';
 
-.topbar__main {
+.header__main {
 	position: relative;
 	z-index: 1;
 	background-color: $primary-color;
@@ -40,12 +40,12 @@
 	}
 }
 
-.topbar__heading {
+.header__sub {
     padding: 16px 0;
     background-color: $secondary-color;
 	box-shadow: 0 0 40px 10px $black-05;
 
-	&__text {
+	&__title {
 		font-size: 24px;
 		font-weight: bold;
 		font-family: raleway;
