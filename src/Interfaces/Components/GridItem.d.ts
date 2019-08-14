@@ -4,9 +4,9 @@ import { Props } from 'prop-types';
 
 declare module IGridItem {
     export interface IProps extends Props<{}> {
-        name: string;
-        desc: string;
-        img: string;
+        name?: string;
+        desc?: string;
+        img?: string;
         routerLink?: string;
     }
 

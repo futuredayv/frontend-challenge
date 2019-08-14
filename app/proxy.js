@@ -1,6 +1,6 @@
 const devProxy = {
 	'/api': {
-		target: 'https://raw.githubusercontent.com/futuredayv/frontend-challenge/master/feed/',
+		target: '',
 		pathRewrite: { '^/api': '' },
 		changeOrigin: true,
 	},

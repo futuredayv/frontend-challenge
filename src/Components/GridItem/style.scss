@@ -2,7 +2,7 @@
 @import '../../Styles/variables.scss';
 
 .GridItem {
-    flex: calc(1/7);
+    width: calc((100% - 7 * 32px) / 7);
     padding: 16px;
     font-family: ubuntu;
     cursor: pointer;

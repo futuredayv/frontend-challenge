@@ -8,6 +8,7 @@ import withRedux from 'next-redux-wrapper';
 
 //#region Local Imports
 import store from '@Redux/store';
+import '../src/Styles/styles.scss';
 //#endregion Local Imports
 
 //#region Interface Imports

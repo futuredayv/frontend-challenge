@@ -19,17 +19,17 @@ export const MoviesActions = {
 		dispatch({ type: ActionConsts.Movies.FetchJSON });
 
 		try {
-			const result = await fetch('/api/feed.json');
-			const data = await result.json();
+			const result = await fetch('https://raw.githubusercontent.com/futuredayv/frontend-challenge/master/feed/sample.json');
+			const { entries } = await result.json();
 
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_SUCCESS,
-				payload: data,
+				payload: entries,
 			});
 		} catch (err) {
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_FAIL,
-				payload: { err },
+				payload: err,
 			});
 		}
 	},
