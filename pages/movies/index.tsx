@@ -10,6 +10,7 @@ import './style.scss';
 
 //#region Interface Imports
 import { IMovies } from '@Interfaces';
+import { Layout } from '@Components';
 //#endregion Interface Imports
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
@@ -23,17 +24,17 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 	public render(): JSX.Element {
 		return (
-			<div className="Movies">
-				Movies
-			</div>
+			<Layout title="Popular Movies">
+				Hello!
+			</Layout>
 		);
 	}
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = (state: IMovies.IState) => state;
 
-const mapDispatchToProps = (dispatch: Dispatch) => (
-);
+// const mapDispatchToProps = (dispatch: Dispatch) => (
+// );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movies);
+export default connect(mapStateToProps)(Movies);
 
