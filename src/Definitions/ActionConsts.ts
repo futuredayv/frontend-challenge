@@ -1,10 +1,13 @@
 export const ActionConsts = {
     Movies : {
-        ResetReducer: 'Movies_ResetReducer',
-        SetReducer: 'Movies_SetReducer'
+        ResetReducer: '[Movies] ResetReducer',
+        SetReducer: '[Movies] SetReducer',
+        FetchJSON: '[Movies] FetchJSON',
+        FetchJSON_SUCCESS: '[Movies] FetchJSON (SUCCESS)',
+        FetchJSON_FAIL: '[Movies] FetchJSON (FAIL)',
     },
 	Home: {
-		ResetReducer: 'Home_ResetReducer',
-		SetReducer: 'Home_SetReducer',
+		ResetReducer: '[Home] ResetReducer',
+		SetReducer: '[Home] SetReducer',
 	},
 };
