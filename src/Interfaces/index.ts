@@ -3,6 +3,7 @@ export { IApp } from '@Interfaces/Pages/App.d.ts';
 export { IHomePage } from '@Interfaces/Pages/Home.d.ts';
 
 // COMPONENT INTERFACES
+export { IGridItem } from '@Interfaces/Components/GridItem.d.ts';
 export { ILayout } from '@Interfaces/Components/Layout.d.ts';
 export { IFooter } from '@Interfaces/Components/Footer.d.ts';
 export { IHeading } from '@Interfaces/Components/Heading.d.ts';
