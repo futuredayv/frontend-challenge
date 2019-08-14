@@ -22,9 +22,15 @@ export const MoviesActions = {
 			const result = await fetch('/api/feed.json');
 			const data = await result.json();
 
-			dispatch({ type: ActionConsts.Movies.FetchJSON_SUCCESS, data });
+			dispatch({
+				type: ActionConsts.Movies.FetchJSON_SUCCESS,
+				payload: data,
+			});
 		} catch (err) {
-			dispatch({ type: ActionConsts.Movies.FetchJSON_FAIL, err });
+			dispatch({
+				type: ActionConsts.Movies.FetchJSON_FAIL,
+				payload: { err },
+			});
 		}
 	},
 };

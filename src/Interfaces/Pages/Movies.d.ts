@@ -10,7 +10,10 @@ declare module IMovies {
     export interface IStateProps { }
 
     module Actions {
-	    export interface IMapPayload { }
+	    export interface IMapPayload {
+            data?: { };
+            err?: string;
+        }
 		export interface IMapResponse { }
 	}
 }
