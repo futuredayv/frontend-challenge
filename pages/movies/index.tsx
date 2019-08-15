@@ -26,7 +26,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	}
 
 	getFirst = (count: number) => {
-		return this.props.movies
+		return this.props.movies && this.props.movies
 			.slice(0, count)
 			.sort((a, b) => a.title.localeCompare(b.title))
 			.map(({ title, images: { 'Poster Art': { url } } }, i) => (
