@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
 
 //#region Local Imports
 import './style.scss';
-import { InstagramIcon } from '../../Assets/icons'
+import { InstagramIcon } from '../../Assets/icons';
 //#endregion Local Imports
 
 //#region Interface Imports
@@ -20,8 +20,8 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		super(props);
 
 		this.state = {
-			searchText: ''
-		}
+			searchText: '',
+		};
 	}
 
 	inputs$: Subject<any> = new Subject<any>();
@@ -43,20 +43,26 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	public render(): JSX.Element {
 		return (
 			<div className="search">
-				<div className="search__input">
-					<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit}>
+					<div className="search__input">
 						<input
 							type="text"
 							name="search-text"
 							onChange={this.handleChange}
 						/>
-						<button>
+						<button type="submit">
 							<InstagramIcon className="icon" />
 						</button>
-					</form>
-				</div>
+					</div>
 
-				<div className="search__sort">sortbox</div>
+					<div className="search__sort">
+						<select name="sort">
+							<option>A1</option>
+							<option>A2</option>
+							<option>A3</option>
+						</select>
+					</div>
+				</form>
 			</div>
 		);
 	}

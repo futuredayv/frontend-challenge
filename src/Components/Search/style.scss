@@ -1,3 +1,46 @@
-.Search {
+
+@import '../../Styles/variables.scss';
+
+.search {
+    margin: 32px 0 16px;
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .search__input {
+            display: flex;
+            align-items: center;
+            width: calc(100% / 7 * 3 - 16px);
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 0 40px $black-02;
     
+            input {
+                width: 100%;
+                padding: 8px 16px;
+                border: none;
+                background-color: transparent;
+                color: $secondary-color;
+                font-family: ubuntu;
+                font-weight: bold;
+                outline: none;
+            }
+        
+            button {
+                cursor: pointer;
+                background-color: $primary-color;
+                border: none;
+    
+                .icon {
+                    margin: 8px;
+                }
+            }
+        }
+    
+        .search__sort {
+
+        }
+    }
 }
