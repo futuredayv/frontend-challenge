@@ -9,6 +9,8 @@ declare module ISearch {
 
     export interface IState {
         searchText: string;
+        sortBy: string;
+        isDroppedDown: boolean;
     }
 
     export interface IStateProps { }

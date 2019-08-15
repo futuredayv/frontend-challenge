@@ -1,5 +1,5 @@
 
-// @import 'variables.scss';
+@import 'variables.scss';
 @import 'responsive.scss';
 
 
@@ -34,4 +34,10 @@ a {
     width: 24px;
     height: 24px;
     margin: 0 8px;
+}
+
+.shadow-radius-box {
+    box-shadow: 0 0 40px $black-02;
+    border-radius: 4px;
+    overflow: hidden;
 }
