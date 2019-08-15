@@ -10,8 +10,8 @@ import './style.scss';
 //#endregion Local Imports
 
 //#region Interface Imports
-import { IMovies, DemoResponse, IStore } from '@Interfaces';
-import { Layout, GridItem } from '@Components';
+import { IMovies, IStore } from '@Interfaces';
+import { Layout, GridItem, Search } from '@Components';
 //#endregion Interface Imports
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
@@ -40,6 +40,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 		return (
 			<Layout title="Popular Movies">
+				<Search />
 				{isLoading && <h1>Loading...</h1>}
 
 				{err && <h1>FATAL ERROR!</h1>}
