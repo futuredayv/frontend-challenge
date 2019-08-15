@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
 
+import { SearchReducer } from './search';
+
 import { MoviesReducer } from './movies';
 
 import { HomeReducer } from './home';
 
 export default combineReducers({
+    search: SearchReducer,
     movies: MoviesReducer,
 	home: HomeReducer,
 });

@@ -5,6 +5,7 @@ export { IHomePage } from '@Interfaces/Pages/Home.d.ts';
 
 // COMPONENT INTERFACES
 export { ISearch } from '@Interfaces/Components/Search.d.ts';
+export { ISearch } from '@Interfaces/Components/Search.d.ts';
 export { IGridItem } from '@Interfaces/Components/GridItem.d.ts';
 export { ILayout } from '@Interfaces/Components/Layout.d.ts';
 export { IFooter } from '@Interfaces/Components/Footer.d.ts';
