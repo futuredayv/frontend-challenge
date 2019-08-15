@@ -4,20 +4,19 @@ import { DemoResponse } from '@Interfaces';
 //#endregion Global Imports
 
 declare module IMovies {
-    export interface IProps extends Props<{}> {
-        movies: {
-            data: DemoResponse[];
-            err: string;
-            isLoading: boolean;
-        }
+    export type IProps = IOwnProps & IStateProps & IDispatchProps;
 
-        FetchJSON;
-    }
+    export interface IOwnProps extends Props<{}> {}
+
     export interface IState { }
+
     export interface IStateProps { }
 
+    export interface IDispatchProps {
+        FetchJSON(): Actions.IFetchJSON;
+	}
+
     module Actions {
-	    export interface IMapPayload { }
-		export interface IMapResponse { }
+        export interface IFetchJSON { }
 	}
 }
