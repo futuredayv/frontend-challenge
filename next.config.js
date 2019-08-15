@@ -11,7 +11,7 @@ const withReactSvg = require('next-react-svg');
 /* eslint-enable @typescript-eslint/no-var-requires */
 
 const withConfig = nextRuntimeDotenv({
-	public: ['API_URL', 'API_KEY'],
+	public: ['API_URL', 'API_KEY', 'SAMPLE_JSON'],
 });
 
 module.exports = withConfig(
@@ -29,8 +29,12 @@ module.exports = withConfig(
 			[withBundleAnalyzer],
 		],
 		{
-			analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-			analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+			analyzeServer: ['server', 'both'].includes(
+				process.env.BUNDLE_ANALYZE,
+			),
+			analyzeBrowser: ['browser', 'both'].includes(
+				process.env.BUNDLE_ANALYZE,
+			),
 			bundleAnalyzerConfig: {
 				server: {
 					analyzerMode: 'static',

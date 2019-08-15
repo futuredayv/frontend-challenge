@@ -41,7 +41,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		return (
 			<Layout title="Popular Movies">
 				{isLoading && <h1>Loading...</h1>}
-				{err && <h3>{err}</h3>}
+				{/* {err && <h3>{err}</h3>} */}
 
 				<div className="grid-area">{data && this.getFirst21(data)}</div>
 			</Layout>

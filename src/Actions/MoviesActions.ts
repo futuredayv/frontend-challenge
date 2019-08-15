@@ -1,6 +1,13 @@
-import { ActionConsts } from '@Definitions';
+import 'isomorphic-unfetch';
 import { Dispatch } from 'redux';
+import getConfig from 'next/config';
+
+import { ActionConsts } from '@Definitions';
 // import { DemoResponse } from '@Interfaces';
+
+const {
+	publicRuntimeConfig: { SAMPLE_JSON },
+} = getConfig();
 
 /**
  * ACTIONS
@@ -19,7 +26,7 @@ export const MoviesActions = {
 		dispatch({ type: ActionConsts.Movies.FetchJSON });
 
 		try {
-			const result = await fetch('https://raw.githubusercontent.com/futuredayv/frontend-challenge/master/feed/sample.json');
+			const result = await fetch(SAMPLE_JSON);
 			const { entries } = await result.json();
 
 			dispatch({
@@ -27,6 +34,7 @@ export const MoviesActions = {
 				payload: entries,
 			});
 		} catch (err) {
+			console.log(err);
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_FAIL,
 				payload: err,
