@@ -1,7 +1,8 @@
 //#region Interface Imports
-import { IHomePage, IMoviesPage } from '@Interfaces';
+import { IHomePage, IMovies } from '@Interfaces';
 //#endregion Interface Imports
 
 export interface IStore {
 	home: IHomePage.IStateProps;
+	movies: IMovies.IStateProps;
 }
