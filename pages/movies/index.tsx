@@ -27,9 +27,8 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 	getFirst21 = (data: DemoResponse[]) => {
 		return data
-			.filter(e => e.programType === 'movie')
-			.sort((a, b) => a.title.localeCompare(b.title))
 			.slice(0, 14)
+			.sort((a, b) => a.title.localeCompare(b.title))
 			.map(({ title, images: { 'Poster Art': { url } } }, i) => (
 				<GridItem key={i} desc={title} img={url} />
 			));
