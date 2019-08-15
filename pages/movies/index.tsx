@@ -10,7 +10,7 @@ import './style.scss';
 //#endregion Local Imports
 
 //#region Interface Imports
-import { IMovies, DemoResponse } from '@Interfaces';
+import { IMovies, DemoResponse, IStore } from '@Interfaces';
 import { Layout, GridItem } from '@Components';
 //#endregion Interface Imports
 
@@ -36,7 +36,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	};
 
 	public render(): JSX.Element {
-		const { data, err, isLoading } = this.props.movies;
+		const { data, err, isLoading } = this.props;
 
 		return (
 			<Layout title="Popular Movies">
@@ -49,7 +49,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	}
 }
 
-const mapStateToProps = (state: IMovies.IState) => state;
+const mapStateToProps = (state: IStore) => state.movies;
 
 const mapDispatchToProps = (dispatch: Dispatch) =>
 	bindActionCreators(MoviesActions, dispatch);

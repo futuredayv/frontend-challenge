@@ -10,7 +10,11 @@ declare module IMovies {
 
     export interface IState { }
 
-    export interface IStateProps { }
+    export interface IStateProps {
+        data: DemoResponse[];
+        err: string;
+        isLoading: boolean;
+    }
 
     export interface IDispatchProps {
         FetchJSON(): Actions.IFetchJSON;
