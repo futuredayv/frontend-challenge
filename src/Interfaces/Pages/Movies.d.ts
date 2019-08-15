@@ -11,9 +11,9 @@ declare module IMovies {
     export interface IState { }
 
     export interface IStateProps {
-        data: DemoResponse[];
-        err: string;
-        isLoading: boolean;
+        movies?: DemoResponse[];
+        err?: string;
+        isLoading?: boolean;
     }
 
     export interface IDispatchProps {
@@ -21,6 +21,7 @@ declare module IMovies {
 	}
 
     module Actions {
+        export interface IMapPayload { }
         export interface IFetchJSON { }
 	}
 }

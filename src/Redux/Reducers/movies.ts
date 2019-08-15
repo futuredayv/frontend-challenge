@@ -10,7 +10,7 @@ import { IAction, IMovies } from '@Interfaces';
  * INITIAL_STATE
  */
 const INITIAL_STATE: IMovies.IStateProps = {
-	demoParam: 'hello!'
+	movies: []
 };
 
 type IMapPayload = IMovies.Actions.IMapPayload;
@@ -36,12 +36,12 @@ export const MoviesReducer = (
 			};
 
 		case ActionConsts.Movies.FetchJSON_SUCCESS:
-			const { payload: data } = action;
+			const { payload: movies } = action;
 
 			return {
 				...state,
 				isLoading: false,
-				data,
+				movies,
 			};
 
 		case ActionConsts.Movies.FetchJSON_FAIL:

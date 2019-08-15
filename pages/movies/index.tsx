@@ -25,9 +25,9 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		this.props.FetchJSON();
 	}
 
-	getFirst21 = (data: DemoResponse[]) => {
-		return data
-			.slice(0, 14)
+	getFirst = (count: number) => {
+		return this.props.movies
+			.slice(0, count)
 			.sort((a, b) => a.title.localeCompare(b.title))
 			.map(({ title, images: { 'Poster Art': { url } } }, i) => (
 				<GridItem key={i} desc={title} img={url} />
@@ -35,14 +35,15 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	};
 
 	public render(): JSX.Element {
-		const { data, err, isLoading } = this.props;
+		const { err, isLoading } = this.props;
 
 		return (
 			<Layout title="Popular Movies">
 				{isLoading && <h1>Loading...</h1>}
-				{/* {err && <h3>{err}</h3>} */}
 
-				<div className="grid-area">{data && this.getFirst21(data)}</div>
+				{err && <h1>FATAL ERROR!</h1>}
+
+				<div className="grid-area">{this.getFirst(21)}</div>
 			</Layout>
 		);
 	}
