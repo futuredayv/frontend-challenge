@@ -5,7 +5,7 @@
 .search {
     margin: 32px 0 16px;
     font-family: ubuntu;
-    font-weight: bold;
+    font-size: 14px;
 
     form {
         display: flex;
@@ -23,6 +23,7 @@
                 border: none;
                 background-color: transparent;
                 color: $secondary-color;
+                font-family: ubuntu;
                 outline: none;
             }
         
@@ -32,6 +33,7 @@
                 border: none;
     
                 .icon {
+                    fill: #fff;
                     margin: 8px;
                 }
             }
@@ -55,6 +57,7 @@
                 }
 
                 &__selected {
+                    min-width: 180px;
                     padding: 8px 16px;
                     color: $secondary-color;
                 }
@@ -63,6 +66,7 @@
 
                     .icon {
                         margin: 8px;
+                        fill: $primary-color;
                     }
                 }
 

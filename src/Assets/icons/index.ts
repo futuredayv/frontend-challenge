@@ -1,3 +1,7 @@
+
+export { default as SearchIcon } from './search.svg';
+export { default as SortIcon } from './sort.svg';
+
 export { default as FacebookIcon } from './facebook.svg';
 export { default as TwitterIcon } from './twitter.svg';
 export { default as InstagramIcon } from './instagram.svg';

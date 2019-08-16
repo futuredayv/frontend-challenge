@@ -8,7 +8,7 @@ import { debounceTime } from 'rxjs/operators';
 
 //#region Local Imports
 import './style.scss';
-import { InstagramIcon } from '../../Assets/icons';
+import { SearchIcon, SortIcon } from '../../Assets/icons';
 //#endregion Local Imports
 
 //#region Interface Imports
@@ -85,10 +85,11 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 						<input
 							type="text"
 							name="search-text"
+							placeholder="Looking for something specific ?"
 							onChange={this.handleChange}
 						/>
 						<button type="submit">
-							<InstagramIcon className="icon" />
+							<SearchIcon className="icon" />
 						</button>
 					</div>
 
@@ -101,7 +102,7 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 								{this.state.sortBy.name}
 							</div>
 							<div className="sort__control__indicator">
-								<InstagramIcon className="icon" />
+								<SortIcon className="icon" />
 							</div>
 
 							<div className="sort__control__dropdown shadow-radius-box">
