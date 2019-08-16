@@ -32,10 +32,14 @@ export const MoviesActions = {
 
 			const { movie: movies, series } = groupByProgramType(entries);
 
-			dispatch({
-				type: ActionConsts.Movies.FetchJSON_SUCCESS,
-				payload: movies,
-			});
+			setTimeout(() => {
+
+				dispatch({
+					type: ActionConsts.Movies.FetchJSON_SUCCESS,
+					payload: movies,
+				});
+			}, 3000)
+
 			// dispatch({
 			// 	type: ActionConsts.Series.FetchJSON_SUCCESS,
 			// 	payload: series

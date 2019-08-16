@@ -11,7 +11,7 @@ import './style.scss';
 
 //#region Interface Imports
 import { IMovies, IStore } from '@Interfaces';
-import { Layout, GridItem, Search } from '@Components';
+import { Layout, GridItem, Search, Toast } from '@Components';
 //#endregion Interface Imports
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
@@ -41,7 +41,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		return (
 			<Layout title="Popular Movies">
 				{isLoading || err ? (
-					<div>BLABAL</div>
+					<Toast isLoading err />
 				) : (
 					<>
 						<Search />

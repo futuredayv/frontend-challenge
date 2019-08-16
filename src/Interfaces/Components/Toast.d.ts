@@ -4,7 +4,8 @@ import { Props } from 'prop-types';
 
 declare module IToast {
     export interface IProps extends Props<{}> {
-  
+        isLoading: boolean;
+        err: boolean;
     }
 
 }

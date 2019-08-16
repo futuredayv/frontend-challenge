@@ -1,3 +1,23 @@
+
+@import '../../Styles/variables.scss';
+
 .Toast {
+
+    span {
+        border-radius: 4px;
+        padding: 16px;
+        font-size: 16px;
+        font-weight: bold;
+        font-style: italic;
+        color: #fff;
+
+        &.loading {
+            background-color: $primary-color;
+        }
     
+        &.error {
+            background-color: red;
+        }
+    }
+
 }
