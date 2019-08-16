@@ -19,9 +19,10 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 			isDroppedDown: false,
 			selectedItem: this.props.items[0],
 		};
-	}
 
-	controlRef: HTMLDivElement;
+	}
+	
+	controlRef = React.createRef<HTMLDivElement>();
 
 	componentDidMount() {
 		document.addEventListener('click', this.handleOutsideClick);
@@ -43,12 +44,8 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 		return item == selectedItem ? activeClass || 'selected' : '';
 	};
 
-	setRef = (node: HTMLDivElement) => {
-		this.controlRef = node;
-	};
-
 	handleOutsideClick = ({ target }: MouseEvent) => {
-		if (this.controlRef && !this.controlRef.contains(target)) {
+		if (this.controlRef && !this.controlRef.current!.contains(target as Node)) {
 			this.setState({ isDroppedDown: false });
 		}
 	};
@@ -75,7 +72,7 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 				<div
 					className={`sort__control ${this.isDroppedDown()}`}
 					onClick={this.toggleDropDown}
-					ref={this.setRef}
+					ref={this.controlRef}
 				>
 					<div className="sort__control__selected">
 						{this.state.selectedItem.name}
