@@ -7,29 +7,38 @@
     font-family: ubuntu;
     cursor: pointer;
 
-    &__Inner {
-        min-height: 160px; // Local Image Needed
-        position: relative;
-        border-radius: 4px;
-        overflow: hidden;
-        box-shadow: 0 0 40px 10px $black-02;
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
+    &:hover {
 
-        &:hover {
-            transform: perspective(800px) translateZ(80px);
-            box-shadow: 0 0 20px 5px $black-02;
+        .GridItem__Inner {
+            transform: translateZ(50px);
+            box-shadow: 0 0 20px 0 $black-04;
 
             img {
                 transition: transform 1s ease;
-                transform: scale(1.2);
+                transform: scale(1.1);
             }
 
             .overlay {
-                opacity: 0.6;
+                opacity: 1;
             }
+
         }
+
+        .GridItem__Desc {
+            color: $primary-color;
+            transform: translateZ(30px);
+        }
+    }
+
+    &__Inner {
+        min-height: 160px;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 0 0 10px 0 $black-02;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
 
         img {
             transition: transform 0.3s ease;
@@ -47,8 +56,8 @@
             justify-content: center;
             font-weight: bold;
             font-size: 32px;
-            opacity: 0.3;
-            background-color: $secondary-color;
+            opacity: 0;
+            background-color: $primary-color--lighter;
             transition: opacity 0.3s ease;
         }
     }
@@ -59,5 +68,8 @@
         font-weight: bold;
         font-size: 14px;
         text-align: center;
+        transition:
+            transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+            color 0.3s ease;
     }
 }
