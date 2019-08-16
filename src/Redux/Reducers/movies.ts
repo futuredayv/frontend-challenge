@@ -10,7 +10,9 @@ import { IAction, IMovies } from '@Interfaces';
  * INITIAL_STATE
  */
 const INITIAL_STATE: IMovies.IStateProps = {
-	movies: []
+	movies: [],
+	isLoading: true,
+	err: ''
 };
 
 type IMapPayload = IMovies.Actions.IMapPayload;

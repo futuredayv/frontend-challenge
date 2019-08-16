@@ -1,18 +1,40 @@
 
 @import '../../Styles/variables.scss';
 
-.Toast {
+.toast {
 
-    span {
+     &__container {
         border-radius: 4px;
-        padding: 16px;
+        padding: 8px 16px;
         font-size: 16px;
-        font-weight: bold;
-        font-style: italic;
-        color: #fff;
+        font-family: ubuntu;
+        color: $white-07;
+
+        h4 {
+            margin: 0;
+            color: #fff;
+        }
+
+        &__text {
+            display: flex;
+            padding: 16px 0;
+        }
 
         &.loading {
             background-color: $primary-color;
+
+            .quote {
+                font-style: italic;
+                color: #fff;
+            }
+
+            .movie {
+                margin: 0 8px;
+            }
+
+            .year {
+                font-weight: bold;
+            }
         }
     
         &.error {

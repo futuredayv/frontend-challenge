@@ -40,8 +40,8 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 		return (
 			<Layout title="Popular Movies">
-				{isLoading || err ? (
-					<Toast isLoading err />
+				{isLoading || !!err ? (
+					<Toast isLoading err={!!err} />
 				) : (
 					<>
 						<Search />

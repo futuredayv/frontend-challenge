@@ -8,23 +8,54 @@ import { IToast } from '@Interfaces';
 //#endregion Interface Imports
 
 const quotes = [
-	`“Frankly, my dear, I don't give a damn.” Gone With the Wind, 1939`,
-	`“I'm going to make him an offer he can't refuse.” The Godfather, 1972`,
-	`“Toto, I've got a feeling we're not in Kansas anymore.” The Wizard of Oz, 1939`,
-	`“Here's looking at you, kid.” Casablanca, 1942`,
-	`“Go ahead, make my day.” Sudden Impact, 1983`,
-	`“May the Force be with you.” Star Wars, 1977`,
+	{
+		quote: "Frankly, my dear, I don't give a damn.",
+		movie: 'Gone With the Wind',
+		year: 1939,
+	},
+	{
+		quote: "I'm going to make him an offer he can't refuse.",
+		movie: 'The Godfather',
+		year: 1972,
+	},
+	{
+		quote: "Toto, I've got a feeling we're not in Kansas anymore.",
+		movie: 'The Wizard of Oz',
+		year: 1939,
+	},
+	{ quote: "Here's looking at you, kid.", movie: 'Casablanca', year: 1942 },
+	{ quote: 'Go ahead, make my day.', movie: 'Sudden Impact', year: 1983 },
+	{ quote: 'May the Force be with you.', movie: 'Star Wars', year: 1977 },
 ];
 
-const getRandomQuote = () => {
+const getRandomQuote = (): JSX.Element => {
 	const random = Math.floor(Math.random() * quotes.length);
-	return quotes[random];
+	const { quote, movie, year } = quotes[random];
+	return (
+		<>
+			<div className="quote">"{quote}"</div>
+			<div className="movie">― {movie}</div>
+			<div className="year">{year}</div>
+		</>
+	);
 };
 
 export const Toast = ({ isLoading, err }: IToast.IProps): JSX.Element => (
-	<div className="Toast">
-		{isLoading ? <span className="loading">{getRandomQuote()}</span> : null}
+	<div className="toast">
+		{isLoading && (
+			<div className="toast__container loading">
+				<h4>Loading</h4>
+				<div className="toast__container__text">{getRandomQuote()}</div>
+			</div>
+		)}
 
-		{err ? <span className="error">Oops! Something went wrong.</span> : null}
+		{!!err && (
+			<div className="toast__container error">
+				<h4>Error</h4>
+				<div className="toast__container__text">
+					Oops! Something went wrong.
+				</div>
+			</div>
+		)}
 	</div>
 );
