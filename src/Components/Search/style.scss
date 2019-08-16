@@ -47,6 +47,13 @@
                 justify-content: space-between;
                 cursor: pointer;
 
+                &.dropped {
+
+                    .sort__control__dropdown {
+                        display: block;
+                    }
+                }
+
                 &__selected {
                     padding: 8px 16px;
                     color: $secondary-color;

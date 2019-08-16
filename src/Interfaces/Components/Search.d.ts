@@ -9,11 +9,16 @@ declare module ISearch {
 
     export interface IState {
         searchText: string;
-        sortBy: string;
+        sortBy: ISortOption;
         isDroppedDown: boolean;
     }
 
     export interface IStateProps { }
+
+    export interface ISortOption {
+        name: string;
+        value: string;
+    }
 
     module Actions {
 	    export interface IMapPayload { }

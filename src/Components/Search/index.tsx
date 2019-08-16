@@ -21,14 +21,14 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 
 		this.state = {
 			searchText: '',
-			sortBy: 'Alphanumeric ASC',
+			sortBy: this.sortOptions[0],
 			isDroppedDown: false,
 		};
 	}
 
 	inputs$: Subject<any> = new Subject<any>();
 
-	sortOptions = [
+	sortOptions: ISearch.ISortOption[] = [
 		{ name: 'Alphanumeric ASC', value: 'A_ASC' },
 		{ name: 'Alphanumeric DESC', value: 'A_DESC' },
 		{ name: 'Year ASC', value: 'Y_ASC' },
@@ -39,12 +39,14 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		this.inputs$.pipe(debounceTime(300)).subscribe(console.log);
 	}
 
-	handleSubmit = e => {
+	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		console.log(this.state.searchText);
 	};
 
-	handleChange = ({ target: { value } }) => {
+	handleChange = ({
+		currentTarget: { value },
+	}: React.FormEvent<HTMLInputElement>) => {
 		this.setState({ searchText: value });
 		this.inputs$.next(value);
 	};
@@ -52,19 +54,25 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	toggleDropDown = () => {
 		const { isDroppedDown } = this.state;
 
-		if (isDroppedDown) return;
+		// if (isDroppedDown) return;
 
 		this.setState({ isDroppedDown: !isDroppedDown });
 	};
 
-	isSelected = sortOption => {
-		sortOption === this.state.sortBy ? 'selected' : '';
+	isSelected = (sortOption: ISearch.ISortOption) => {
+		return sortOption == this.state.sortBy ? 'selected' : '';
 	};
 
+	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
+
 	renderDropDownList = () => {
-		return this.sortOptions.map(({ name, value }, i) => (
-			<div key={i} className={`dropdown__item ${this.isSelected(value)}`}>
-				{name}
+		return this.sortOptions.map((sortOption, i) => (
+			<div
+				key={i}
+				className={`dropdown__item ${this.isSelected(sortOption)}`}
+				onClick={() => this.setState({ sortBy: sortOption })}
+			>
+				{sortOption.name}
 			</div>
 		));
 	};
@@ -84,13 +92,13 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 						</button>
 					</div>
 
-					<div
-						className="search__sort shadow-radius-box"
-						onClick={this.toggleDropDown}
-					>
-						<div className="sort__control">
+					<div className="search__sort shadow-radius-box">
+						<div
+							className={`sort__control ${this.isDroppedDown()}`}
+							onClick={this.toggleDropDown}
+						>
 							<div className="sort__control__selected">
-								{this.state.sortBy}
+								{this.state.sortBy.name}
 							</div>
 							<div className="sort__control__indicator">
 								<InstagramIcon className="icon" />
