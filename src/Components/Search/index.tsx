@@ -66,15 +66,17 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
 
 	renderDropDownList = () => {
-		return this.sortOptions.map((sortOption, i) => (
-			<div
-				key={i}
-				className={`dropdown__item ${this.isSelected(sortOption)}`}
-				onClick={() => this.setState({ sortBy: sortOption })}
-			>
-				{sortOption.name}
-			</div>
-		));
+		return this.sortOptions
+			.filter(s => this.isSelected(s) === '')
+			.map((sortOption, i) => (
+				<div
+					key={i}
+					className={`dropdown__item ${this.isSelected(sortOption)}`}
+					onClick={() => this.setState({ sortBy: sortOption })}
+				>
+					{sortOption.name}
+				</div>
+			));
 	};
 
 	public render(): JSX.Element {
