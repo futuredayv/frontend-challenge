@@ -4,6 +4,7 @@ export { IApp } from '@Interfaces/Pages/App.d.ts';
 export { IHomePage } from '@Interfaces/Pages/Home.d.ts';
 
 // COMPONENT INTERFACES
+export { IToast } from '@Interfaces/Components/Toast.d.ts';
 export { IDropDown } from '@Interfaces/Components/DropDown.d.ts';
 export { ITextBox } from '@Interfaces/Components/TextBox.d.ts';
 export { ISearch } from '@Interfaces/Components/Search.d.ts';

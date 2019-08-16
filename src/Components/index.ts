@@ -5,3 +5,4 @@ export { GridItem } from '@Components/GridItem';
 export { default as Search } from '@Components/Search';
 export { default as TextBox } from '@Components/TextBox';
 export { default as DropDown } from '@Components/DropDown';
+export { default as Toast } from '@Components/Toast';
