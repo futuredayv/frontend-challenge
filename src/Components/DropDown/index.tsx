@@ -19,9 +19,8 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 			isDroppedDown: false,
 			selectedItem: this.props.items[0],
 		};
-
 	}
-	
+
 	controlRef = React.createRef<HTMLDivElement>();
 
 	componentDidMount() {
@@ -32,10 +31,17 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 		document.addEventListener('click', this.handleOutsideClick);
 	}
 
+	select = (item: IDropDown.IDropDownItem) => {
+		this.setState({ selectedItem: item });
+		this.props.onChange(item);
+	};
+
 	toggleDropDown = () => {
 		const { isDroppedDown } = this.state;
 		this.setState({ isDroppedDown: !isDroppedDown });
 	};
+
+	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
 
 	isSelected = (item: IDropDown.IDropDownItem) => {
 		const { activeClass } = this.props;
@@ -45,12 +51,13 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 	};
 
 	handleOutsideClick = ({ target }: MouseEvent) => {
-		if (this.controlRef && !this.controlRef.current!.contains(target as Node)) {
+		if (
+			this.controlRef &&
+			!this.controlRef.current!.contains(target as Node)
+		) {
 			this.setState({ isDroppedDown: false });
 		}
 	};
-
-	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
 
 	renderDropDownList = () => {
 		return this.props.items
@@ -59,7 +66,7 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 				<div
 					key={i}
 					className={`dropdown__item ${this.isSelected(item)}`}
-					onClick={() => this.setState({ selectedItem: item })}
+					onClick={() => this.select(item)}
 				>
 					{item.name}
 				</div>

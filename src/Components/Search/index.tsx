@@ -19,8 +19,7 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 
 		this.state = {
 			searchText: '',
-			sortBy: this.sortOptions[0],
-			isDroppedDown: false,
+			sortBy: ''
 		};
 	}
 
@@ -33,11 +32,7 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(this.state.searchText);
-	};
-
-	handleChange = e => {
-		console.log(e);
+		console.log(this.state);
 	};
 
 	public render(): JSX.Element {
@@ -47,12 +42,12 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 					<TextBox
 						debounce={300}
 						minLength={3}
-						onChange={this.handleChange}
+						onChange={searchText => this.setState({searchText})}
 					/>
 
 					<DropDown
 						items={this.sortOptions}
-						onChange={this.handleChange}
+						onChange={({value: sortBy}) => this.setState({sortBy})}
 					/>
 				</form>
 			</div>
