@@ -2,17 +2,16 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
 //#endregion Global Imports
 
 //#region Local Imports
 import './style.scss';
-import { SearchIcon, SortIcon } from '../../Assets/icons';
+import { SortIcon } from '../../Assets/icons';
 //#endregion Local Imports
 
 //#region Interface Imports
 import { ISearch, IStore } from '@Interfaces';
+import TextBox from '@Components/TextBox';
 //#endregion Interface Imports
 
 class Search extends React.Component<ISearch.IProps, ISearch.IState> {
@@ -26,8 +25,6 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		};
 	}
 
-	inputs$: Subject<any> = new Subject<any>();
-
 	sortOptions: ISearch.ISortOption[] = [
 		{ name: 'Alphanumeric ASC', value: 'A_ASC' },
 		{ name: 'Alphanumeric DESC', value: 'A_DESC' },
@@ -36,7 +33,6 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	];
 
 	componentDidMount() {
-		this.inputs$.pipe(debounceTime(300)).subscribe(console.log);
 		document.addEventListener('click', this.handleOutsideClick);
 	}
 
@@ -49,18 +45,10 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		console.log(this.state.searchText);
 	};
 
-	handleChange = ({
-		currentTarget: { value },
-	}: React.FormEvent<HTMLInputElement>) => {
-		this.setState({ searchText: value });
-		this.inputs$.next(value);
-	};
+	handleChange = (e) => { console.log(e) }
 
 	toggleDropDown = () => {
 		const { isDroppedDown } = this.state;
-
-		// if (isDroppedDown) return;
-
 		this.setState({ isDroppedDown: !isDroppedDown });
 	};
 
@@ -68,14 +56,13 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		return sortOption == this.state.sortBy ? 'selected' : '';
 	};
 
-	setRef = node => this.controlRef = node;
+	setRef = node => (this.controlRef = node);
 
-	handleOutsideClick = ({target}) => {
-		
+	handleOutsideClick = ({ target }) => {
 		if (this.controlRef && !this.controlRef.contains(target)) {
-			this.setState({isDroppedDown: false})
+			this.setState({ isDroppedDown: false });
 		}
-	}
+	};
 
 	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
 
@@ -97,17 +84,11 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		return (
 			<div className="search">
 				<form onSubmit={this.handleSubmit}>
-					<div className="search__input shadow-radius-box">
-						<input
-							type="text"
-							name="search-text"
-							placeholder="Looking for something specific ?"
-							onChange={this.handleChange}
-						/>
-						<button type="submit">
-							<SearchIcon className="icon" />
-						</button>
-					</div>
+					<TextBox
+						debounce={1000}
+						onChange={this.handleChange}
+						minLength={3}
+					/>
 
 					<div className="search__sort shadow-radius-box">
 						<div

@@ -4,9 +4,13 @@ import { Props } from 'prop-types';
 
 declare module ITextBox {
     export interface IProps extends Props<{}> {
-  
+        debounce: number;
+        minLength: number;
+        onChange: (text: string) => any;
     }
-    export interface IState { }
+    export interface IState {
+        text: string;
+    }
     export interface IStateProps { }
 
 }
