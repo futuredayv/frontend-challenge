@@ -25,15 +25,15 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		this.props.FetchJSON();
 	}
 
-	getFirst = (count: number) => {
-		return this.props.movies && this.props.movies
+	getFirst = (count: number) =>
+		this.props.movies &&
+		this.props.movies
 			.filter(movie => movie.releaseYear >= 2010)
 			.slice(0, count)
 			.sort((a, b) => a.title.localeCompare(b.title))
 			.map(({ title, images: { 'Poster Art': { url } } }, i) => (
 				<GridItem key={i} desc={title} img={url} />
 			));
-	};
 
 	public render(): JSX.Element {
 		const { err, isLoading } = this.props;
