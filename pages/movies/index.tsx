@@ -40,12 +40,14 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 
 		return (
 			<Layout title="Popular Movies">
-				<Search />
-				{isLoading && <h1>Loading...</h1>}
-
-				{err && <h1>FATAL ERROR!</h1>}
-
-				<div className="grid-area">{this.getFirst(21)}</div>
+				{isLoading || err ? (
+					<div>BLABAL</div>
+				) : (
+					<>
+						<Search />
+						<div className="grid-area">{this.getFirst(21)}</div>
+					</>
+				)}
 			</Layout>
 		);
 	}
