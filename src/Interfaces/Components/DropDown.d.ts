@@ -4,9 +4,20 @@ import { Props } from 'prop-types';
 
 declare module IDropDown {
     export interface IProps extends Props<{}> {
-  
+        items: Array<IDropDownItem>;
+        activeClass?: string;
+        onChange: (selectedItem: IDropDownItem) => any;
     }
-    export interface IState { }
+    export interface IState {
+        isDroppedDown: boolean;
+        selectedItem: IDropDownItem;
+    }
+
+    export interface IDropDownItem {
+        name: string;
+        value: string;
+    }
+
     export interface IStateProps { }
 
 }

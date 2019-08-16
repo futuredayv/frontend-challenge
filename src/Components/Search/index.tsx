@@ -6,12 +6,11 @@ import { bindActionCreators, Dispatch } from 'redux';
 
 //#region Local Imports
 import './style.scss';
-import { SortIcon } from '../../Assets/icons';
 //#endregion Local Imports
 
 //#region Interface Imports
 import { ISearch, IStore } from '@Interfaces';
-import TextBox from '@Components/TextBox';
+import { TextBox, DropDown } from '@Components';
 //#endregion Interface Imports
 
 class Search extends React.Component<ISearch.IProps, ISearch.IState> {
@@ -25,59 +24,20 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		};
 	}
 
-	sortOptions: ISearch.ISortOption[] = [
+	sortOptions = [
 		{ name: 'Alphanumeric ASC', value: 'A_ASC' },
 		{ name: 'Alphanumeric DESC', value: 'A_DESC' },
 		{ name: 'Year ASC', value: 'Y_ASC' },
 		{ name: 'Year DESC', value: 'Y_DESC' },
 	];
 
-	componentDidMount() {
-		document.addEventListener('click', this.handleOutsideClick);
-	}
-
-	componentWillUnmount() {
-		document.addEventListener('click', this.handleOutsideClick);
-	}
-
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		console.log(this.state.searchText);
 	};
 
-	handleChange = (e) => { console.log(e) }
-
-	toggleDropDown = () => {
-		const { isDroppedDown } = this.state;
-		this.setState({ isDroppedDown: !isDroppedDown });
-	};
-
-	isSelected = (sortOption: ISearch.ISortOption) => {
-		return sortOption == this.state.sortBy ? 'selected' : '';
-	};
-
-	setRef = node => (this.controlRef = node);
-
-	handleOutsideClick = ({ target }) => {
-		if (this.controlRef && !this.controlRef.contains(target)) {
-			this.setState({ isDroppedDown: false });
-		}
-	};
-
-	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
-
-	renderDropDownList = () => {
-		return this.sortOptions
-			.filter(s => this.isSelected(s) === '')
-			.map((sortOption, i) => (
-				<div
-					key={i}
-					className={`dropdown__item ${this.isSelected(sortOption)}`}
-					onClick={() => this.setState({ sortBy: sortOption })}
-				>
-					{sortOption.name}
-				</div>
-			));
+	handleChange = e => {
+		console.log(e);
 	};
 
 	public render(): JSX.Element {
@@ -85,29 +45,15 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 			<div className="search">
 				<form onSubmit={this.handleSubmit}>
 					<TextBox
-						debounce={1000}
-						onChange={this.handleChange}
+						debounce={300}
 						minLength={3}
+						onChange={this.handleChange}
 					/>
 
-					<div className="search__sort shadow-radius-box">
-						<div
-							className={`sort__control ${this.isDroppedDown()}`}
-							onClick={this.toggleDropDown}
-							ref={this.setRef}
-						>
-							<div className="sort__control__selected">
-								{this.state.sortBy.name}
-							</div>
-							<div className="sort__control__indicator">
-								<SortIcon className="icon" />
-							</div>
-
-							<div className="sort__control__dropdown shadow-radius-box">
-								{this.renderDropDownList()}
-							</div>
-						</div>
-					</div>
+					<DropDown
+						items={this.sortOptions}
+						onChange={this.handleChange}
+					/>
 				</form>
 			</div>
 		);
