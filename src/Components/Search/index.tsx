@@ -37,6 +37,11 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 
 	componentDidMount() {
 		this.inputs$.pipe(debounceTime(300)).subscribe(console.log);
+		document.addEventListener('click', this.handleOutsideClick);
+	}
+
+	componentWillUnmount() {
+		document.addEventListener('click', this.handleOutsideClick);
 	}
 
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,6 +67,15 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	isSelected = (sortOption: ISearch.ISortOption) => {
 		return sortOption == this.state.sortBy ? 'selected' : '';
 	};
+
+	setRef = node => this.controlRef = node;
+
+	handleOutsideClick = ({target}) => {
+		
+		if (this.controlRef && !this.controlRef.contains(target)) {
+			this.setState({isDroppedDown: false})
+		}
+	}
 
 	isDroppedDown = () => (this.state.isDroppedDown ? 'dropped' : '');
 
@@ -99,6 +113,7 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 						<div
 							className={`sort__control ${this.isDroppedDown()}`}
 							onClick={this.toggleDropDown}
+							ref={this.setRef}
 						>
 							<div className="sort__control__selected">
 								{this.state.sortBy.name}
