@@ -1,8 +1,11 @@
 @import '../../Styles/variables.scss';
 
 @keyframes loading {
-    from {}
-    to { background-position-x: 100px }
+	from {
+	}
+	to {
+		background-position-x: 100px;
+	}
 }
 
 .GridItem {
@@ -12,25 +15,24 @@
 	cursor: pointer;
 
 	&.loaded {
-
 		.poster {
-            animation: unset;
+			animation: unset;
 
-            img {
-                opacity: 1;
-            }
-        }
-        
-        span {
-            color: $secondary-color;
-            background-color: unset;
-        }
+			img {
+				opacity: 1;
+			}
+		}
+
+		span {
+			color: $secondary-color;
+			background-color: unset;
+		}
 	}
 
 	&:hover {
 		.GridItem__Inner {
 			transform: translateZ(50px);
-            box-shadow: 0 0 20px 0 $black-04;
+			box-shadow: 0 0 20px 0 $black-04;
 
 			img {
 				transition: transform 1s ease;
@@ -54,17 +56,22 @@
 		border-radius: 4px;
 		overflow: hidden;
 		box-shadow: 0 0 10px 0 $black-02;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        
-        .poster {
-            background: linear-gradient(to right, $black-02, #bbb 50px, $black-02 100px);
-            animation: loading normal infinite 2s ease;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-            img {
-                transition: transform 0.3s ease, opacity 0.6s ease;
-                width: 100%;
-                opacity: 0;
-            }
+		.poster {
+			background: linear-gradient(
+				to right,
+				$black-02,
+				#bbb 50px,
+				$black-02 100px
+			);
+			animation: loading normal infinite 2s ease;
+
+			img {
+				transition: transform 0.3s ease, opacity 0.6s ease;
+				width: 100%;
+				opacity: 0;
+			}
 		}
 
 		.overlay {
@@ -90,12 +97,12 @@
 		font-size: 12px;
 		text-align: center;
 		transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-        
-        span {
-            color: transparent;
-            background-color: #aaa;
-            transition: color 0.3s ease 0.3s, background-color 0.3s ease;
-            border-radius: 4px;
-        }
+
+		span {
+			color: transparent;
+			background-color: #aaa;
+			transition: color 0.3s ease 0.3s, background-color 0.3s ease;
+			border-radius: 4px;
+		}
 	}
 }
