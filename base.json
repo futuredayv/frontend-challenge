@@ -15,7 +15,9 @@
 			"@Redux/*": ["./src/Redux/*"],
 			"@Actions": ["./src/Actions"],
 			"@Services/*": ["./src/Services/*"],
-			"@Services": ["./src/Services"]
+			"@Services": ["./src/Services"],
+			"@Helpers/*": ["./src/Helpers/*"],
+			"@Helpers": ["./src/Helpers"]
 		}
 	}
 }
