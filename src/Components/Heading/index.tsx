@@ -20,7 +20,7 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 
 						<nav>
 							<div className="menu-item">Login</div>
-							<div className="menu-item cta">Start Your Free Trial</div>
+							<div className="menu-item cta shadow-radius-box">Start Your Free Trial</div>
 						</nav>
 					</div>
 				</div>

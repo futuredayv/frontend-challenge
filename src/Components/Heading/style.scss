@@ -5,6 +5,7 @@
 	z-index: 1;
 	background-color: $primary-color;
 	box-shadow: 0 0 20px 10px $black-05;
+	font-family: raleway;
 
 	> .container {
 		display: flex;
@@ -22,6 +23,7 @@
 
 		nav {
 			display: flex;
+			font-size: 14px;
 
 			.menu-item {
 				padding: 8px 16px;
