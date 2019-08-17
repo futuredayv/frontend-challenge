@@ -94,7 +94,7 @@
         span {
             color: transparent;
             background-color: #aaa;
-            transition: color 0.3s ease, background-color 0.3s ease;
+            transition: color 0.3s ease 0.3s, background-color 0.3s ease;
             border-radius: 4px;
         }
 	}
