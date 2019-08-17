@@ -6,6 +6,12 @@
     padding: 16px;
     font-family: ubuntu;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+
+    &.loaded {
+        opacity: 1;
+    }
 
     &:hover {
 

@@ -1,5 +1,5 @@
 //#region Global Imports
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 //#endregion Global Imports
 import './style.scss';
@@ -13,18 +13,22 @@ export const GridItem = ({
 	desc,
 	img,
 	routerLink = '',
-}: IGridItem.IProps): JSX.Element => (
-	<Link href={routerLink || ''}>
-		<div className="GridItem">
-			<div className="GridItem__Inner">
-				<div className="poster">
-					<img src={img} />
+}: IGridItem.IProps): JSX.Element => {
+	const [isLoaded, setLoaded] = useState(false);
+
+	return (
+		<Link href={routerLink || ''}>
+			<div className={`GridItem ${isLoaded && 'loaded'}`}>
+				<div className="GridItem__Inner">
+					<div className="poster">
+						<img src={img} onLoad={() => setLoaded(true)} />
+					</div>
+
+					<div className="overlay">{name}</div>
 				</div>
 
-				<div className="overlay">{name}</div>
+				<div className="GridItem__Desc">{desc}</div>
 			</div>
-
-			<div className="GridItem__Desc">{desc}</div>
-		</div>
-	</Link>
-);
+		</Link>
+	);
+};
