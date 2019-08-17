@@ -1,5 +1,5 @@
 //#region Interface Imports
-import { IHomePage, IMovies, ISearch } from '@Interfaces';
+import { IHomePage, IMovies, ISearch, ISeriesPage } from '@Interfaces';
 //#endregion Interface Imports
 
 export interface IStore {

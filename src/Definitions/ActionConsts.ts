@@ -1,4 +1,8 @@
 export const ActionConsts = {
+    Series : {
+        ResetReducer: 'Series_ResetReducer',
+        SetReducer: 'Series_SetReducer'
+    },
     Search : {
         ResetReducer: '[Search] ResetReducer',
         SetReducer: '[Search] SetReducer',
