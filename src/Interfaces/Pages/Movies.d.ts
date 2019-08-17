@@ -6,7 +6,7 @@ import { DemoResponse } from '@Interfaces';
 declare module IMovies {
     export type IProps = IOwnProps & IStateProps & IDispatchProps;
 
-    export interface IOwnProps extends Props<{}> {}
+    export interface IOwnProps extends Props<{}> { }
 
     export interface IState { }
 

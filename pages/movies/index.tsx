@@ -5,13 +5,15 @@ import { bindActionCreators, Dispatch } from 'redux';
 //#endregion Global Imports
 
 //#region Local Imports
+import { Presentational } from './presentational';
 import { MoviesActions } from '@Actions';
 import './style.scss';
 //#endregion Local Imports
 
 //#region Interface Imports
-import { IMovies, IStore, DemoResponse } from '@Interfaces';
-import { Layout, GridItem, Search, Toast } from '@Components';
+import { IMovies, IStore } from '@Interfaces';
+import { GridItem } from '@Components';
+import { filter, sort, preparePageData } from '../../src/Helpers/PageHelpers';
 //#endregion Interface Imports
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
@@ -25,72 +27,24 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		this.props.FetchJSON();
 	}
 
-	sort = (movies: DemoResponse[]) => {
-		const { ordering, by } = this.props.filterOptions.sort;
-
-		const compareFn = (a: DemoResponse, b: DemoResponse) => {
-			switch (by) {
-				case 'title':
-					return a.title.localeCompare(b.title);
-				case 'releaseYear':
-					return a.releaseYear - b.releaseYear;
-				default:
-					return 0;
-			}
-		};
-
-		return movies.sort((a, b) =>
-			ordering === 'ASC' ? compareFn(a, b) : compareFn(b, a),
-		);
-	};
-
-	filter = () => {
-		const {
-			movies,
-			filterOptions: { search },
-		} = this.props;
-
-		return (
-			movies &&
-			movies
-				.filter(movie => movie.releaseYear >= 2010)
-				.filter(({ title }) =>
-					title.toLowerCase().includes(search.toLowerCase() || ''),
-				)
-		);
-	};
-
 	renderMovies = () => {
-		const filtered = this.filter();
+		const { movies, filterOptions } = this.props;
 
-		return (
-			filtered &&
-			this.sort(filtered)
-				.slice(0, 21)
-				.map(movie => ({
-					title: movie.title,
-					url: movie.images['Poster Art'].url,
-				}))
-				.map(({ title, url }, i) => (
-					<GridItem key={i} desc={title} img={url} />
-				))
-		);
+		if (!movies) return;
+
+		const filtered = filter(movies, filterOptions);
+		const sorted = sort(filtered, filterOptions);
+
+		return preparePageData(sorted).map(({ title, url }, i) => (
+			<GridItem key={i} desc={title} img={url} />
+		));
 	};
 
 	public render(): JSX.Element {
-		const { err, isLoading } = this.props;
-
 		return (
-			<Layout title="Popular Movies">
-				{isLoading || !!err ? (
-					<Toast isLoading err={!!err} />
-				) : (
-					<>
-						<Search />
-						<div className="grid-area">{this.renderMovies()}</div>
-					</>
-				)}
-			</Layout>
+			<Presentational {...this.props}>
+				{this.renderMovies()}
+			</Presentational>
 		);
 	}
 }
