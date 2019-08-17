@@ -24,42 +24,29 @@ export const MoviesActions = {
 
 	FetchJSON: () => async (dispatch: Dispatch) => {
 		dispatch({ type: ActionConsts.Movies.FetchJSON });
-		// dispatch({ type: ActionConsts.Series.FetchJSON });
 
 		try {
 			const result = await fetch(SAMPLE_JSON);
 			const { entries } = await result.json();
 
-			const { movie: movies, series } = groupByProgramType(entries);
+			const payload = groupByProgramType(entries);
 
 			setTimeout(() => {
 				dispatch({
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
-					payload: movies,
+					payload,
 				});
-			}, 3000);
-
-			// dispatch({
-			// 	type: ActionConsts.Series.FetchJSON_SUCCESS,
-			// 	payload: series
-			// })
+			}, 2000);
 		} catch (err) {
-			console.log(err);
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_FAIL,
-				payload: err,
+				payload: `Error: ${err}`,
 			});
 		}
 	},
 };
 
 const groupByProgramType = (entries: DemoResponse[]) =>
-	entries.reduce((acc: any, curr: DemoResponse) =>
-		Object.assign(
-			acc,
-			{
-				[curr.programType]: [...(acc[curr.programType] || []), curr],
-			},
-			{},
-		),
-	);
+	['movie', 'series'].map(programType => {
+		entries.filter(e => e.programType === programType);
+	});

@@ -46,12 +46,10 @@ export const MoviesReducer = (
 			};
 
 		case ActionConsts.Movies.FetchJSON_SUCCESS:
-			const { payload: movies } = action;
-
 			return {
 				...state,
 				isLoading: false,
-				movies,
+				...action.payload
 			};
 
 		case ActionConsts.Movies.FetchJSON_FAIL:
