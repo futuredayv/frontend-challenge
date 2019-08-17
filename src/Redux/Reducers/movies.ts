@@ -11,6 +11,7 @@ import { IAction, IMovies } from '@Interfaces';
  */
 const INITIAL_STATE: IMovies.IStateProps = {
 	movies: [],
+	series: [],
 	isLoading: true,
 	err: '',
 	filterOptions: {

@@ -12,6 +12,7 @@ declare module IMovies {
 
     export interface IStateProps {
         movies?: DemoResponse[];
+        series?: DemoResponse[];
         err?: string;
         isLoading?: boolean;
         filterOptions: IFilterOptions;
