@@ -7,13 +7,13 @@ import { bindActionCreators, Dispatch } from 'redux';
 //#region Local Imports
 import { Presentational } from './presentational';
 import { MoviesActions } from '@Actions';
+import { GridItem } from '@Components';
+import { filter, sort, preparePageData } from '../../src/Helpers/PageHelpers';
 import './style.scss';
 //#endregion Local Imports
 
 //#region Interface Imports
 import { IMovies, IStore } from '@Interfaces';
-import { GridItem } from '@Components';
-import { filter, sort, preparePageData } from '../../src/Helpers/PageHelpers';
 //#endregion Interface Imports
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
