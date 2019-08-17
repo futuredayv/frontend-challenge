@@ -1,5 +1,6 @@
 //#region Global Imports
 import * as React from 'react';
+import Link from 'next/link';
 //#endregion Global Imports
 
 //#region Local Imports
@@ -16,7 +17,9 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 			<header>
 				<div className="header__main">
 					<div className="container">
-						<div className="brand">DEMO Streaming</div>
+						<Link href="/">
+							<div className="brand">DEMO Streaming</div>
+						</Link>
 
 						<nav>
 							<div className="menu-item">Login</div>
