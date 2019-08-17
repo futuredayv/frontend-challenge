@@ -1,7 +1,8 @@
 export const ActionConsts = {
     Search : {
-        ResetReducer: 'Search_ResetReducer',
-        SetReducer: 'Search_SetReducer'
+        ResetReducer: '[Search] ResetReducer',
+        SetReducer: '[Search] SetReducer',
+        UpdateFilterOptions: '[Search] UpdateFilterOptions'
     },
     Movies : {
         ResetReducer: '[Movies] ResetReducer',
