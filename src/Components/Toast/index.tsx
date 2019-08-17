@@ -42,19 +42,11 @@ const getRandomQuote = (): JSX.Element => {
 
 export const Toast = ({ isLoading, err }: IToast.IProps): JSX.Element => (
 	<div className="toast">
-		{isLoading && (
+		{(isLoading || !!err) && (
 			<div className="toast__container loading">
-				<h4>Loading</h4>
-				<div className="toast__container__text">{getRandomQuote()}</div>
-			</div>
-		)}
-
-		{!!err && (
-			<div className="toast__container error">
-				<h4>Error</h4>
-				<div className="toast__container__text">
-					Oops! Something went wrong.
-				</div>
+				<h4>{isLoading ? 'Loading' : 'Error'}</h4>
+				<div className="toast__container__text">{
+					isLoading ? getRandomQuote(): 'Oops! Something went wrong.'}</div>
 			</div>
 		)}
 	</div>
