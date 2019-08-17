@@ -1,16 +1,16 @@
-
 import { DemoResponse, IMovies } from '@Interfaces';
 
-
 export declare module PageHelpers {
-	
 	type PageHelper = (
 		pageData: DemoResponse[],
 		filterOptions: IMovies.IFilterOptions,
 	) => DemoResponse[] | any;
 }
 
-export const sort: PageHelpers.PageHelper = (pageData, { sort: { ordering, by } }) => {
+export const sort: PageHelpers.PageHelper = (
+	pageData,
+	{ sort: { ordering, by } },
+) => {
 	const compareFn = (a: DemoResponse, b: DemoResponse) => {
 		switch (by) {
 			case 'title':
