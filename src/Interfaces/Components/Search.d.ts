@@ -1,5 +1,6 @@
 //#region Global Imports
 import { Props } from 'prop-types';
+import { IMovies } from '@Interfaces';
 //#endregion Global Imports
 
 declare module ISearch {
@@ -14,8 +15,12 @@ declare module ISearch {
 
     export interface IStateProps { }
 
+    export interface IDispatchProps {
+        UpdateFilterOptions(payload: IMovies.IFetchOptions): { }
+	}
+
     module Actions {
 	    export interface IMapPayload { }
-		export interface IMapResponse { }
+        export interface IMapResponse { }
 	}
 }

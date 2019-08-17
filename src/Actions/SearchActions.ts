@@ -15,7 +15,7 @@ export const SearchActions = {
 		type: ActionConsts.Search.ResetReducer
 	}),
 
-	SetSearch: (payload: string) => ({
+	UpdateFilterOptions: (payload: any) => ({
 		payload,
 		type: ActionConsts.Search.UpdateFilterOptions,
 	})
