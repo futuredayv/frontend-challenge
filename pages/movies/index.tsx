@@ -24,7 +24,9 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	}
 
 	componentDidMount() {
-		this.props.FetchJSON();
+		const { FetchJSON, movies } = this.props;
+
+		if (movies && !movies.length) FetchJSON();
 	}
 
 	renderMovies = () => {

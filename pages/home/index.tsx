@@ -26,13 +26,13 @@ export class HomePage extends React.Component<
 		{
 			name: 'Series',
 			desc: 'Popular Series',
-			img: 'sherlock.jpg',
+			img: 'https://streamcoimg-a.akamaihd.net/000/376/201/376201-PosterArt-4f91ac739ae5147a51ae3abc78d55f2d.jpg',
 			routerLink: '/series',
 		},
 		{
 			name: 'Movies',
 			desc: 'Popular Movies',
-			img: 'sicario.jpg',
+			img: 'https://streamcoimg-a.akamaihd.net/000/376/201/376201-PosterArt-4f91ac739ae5147a51ae3abc78d55f2d.jpg',
 			routerLink: '/movies',
 		},
 	];
