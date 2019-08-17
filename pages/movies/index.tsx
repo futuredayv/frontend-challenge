@@ -10,9 +10,17 @@ import './style.scss';
 //#endregion Local Imports
 
 //#region Interface Imports
-import { IMovies, IStore } from '@Interfaces';
+import { IMovies, IStore, DemoResponse } from '@Interfaces';
 import { Layout, GridItem, Search, Toast } from '@Components';
 //#endregion Interface Imports
+
+interface IFetchOptions {
+	search: string;
+	sort: {
+		by: 'title' | 'releaseYear';
+		ordering: 'ASC' | 'DESC';
+	};
+}
 
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	constructor(props: IMovies.IProps) {
@@ -21,19 +29,65 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		this.state = {};
 	}
 
+	filterData: IFetchOptions = {
+		search: '',
+		sort: {
+			by: 'title',
+			ordering: 'ASC',
+		},
+	};
+
 	componentDidMount() {
 		this.props.FetchJSON();
 	}
 
-	getFirst = (count: number) =>
-		this.props.movies &&
-		this.props.movies
-			.filter(movie => movie.releaseYear >= 2010)
-			.slice(0, count)
-			.sort((a, b) => a.title.localeCompare(b.title))
-			.map(({ title, images: { 'Poster Art': { url } } }, i) => (
-				<GridItem key={i} desc={title} img={url} />
-			));
+	sort = (movies: DemoResponse[]) => {
+		const { ordering, by } = this.filterData.sort;
+
+		const compareFn = (a: DemoResponse, b: DemoResponse) => {
+			switch (by) {
+				case 'title':
+					return a.title.localeCompare(b.title)
+				case 'releaseYear':
+					return a.releaseYear - b.releaseYear
+				default:
+					return 0;
+			}
+		}
+
+		return movies.sort((a, b) =>
+			ordering === 'ASC' ? compareFn(a, b) : compareFn(b, a),
+		);
+	};
+
+	filter = () => {
+		const { movies } = this.props;
+		const { search } = this.filterData;
+
+		return (
+			movies &&
+			movies
+				.filter(movie => movie.releaseYear >= 2010)
+				.filter(({ title }) => title.includes(search || ''))
+		);
+	};
+
+	renderMovies = () => {
+		const filtered = this.filter();
+
+		return (
+			filtered &&
+			this.sort(filtered)
+				.slice(0, 20)
+				.map(movie => ({
+					title: movie.title,
+					url: movie.images['Poster Art'].url,
+				}))
+				.map(({ title, url }, i) => (
+					<GridItem key={i} desc={title} img={url} />
+				))
+		);
+	};
 
 	public render(): JSX.Element {
 		const { err, isLoading } = this.props;
@@ -45,7 +99,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 				) : (
 					<>
 						<Search />
-						<div className="grid-area">{this.getFirst(21)}</div>
+						<div className="grid-area">{this.renderMovies()}</div>
 					</>
 				)}
 			</Layout>
