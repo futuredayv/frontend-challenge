@@ -11,23 +11,21 @@ import './style.scss';
 //#region Interface Imports
 import { ISearch, IStore } from '@Interfaces';
 import { TextBox, DropDown } from '@Components';
+import { SearchActions } from '@Actions';
 //#endregion Interface Imports
 
 class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	constructor(props: ISearch.IProps) {
 		super(props);
 
-		this.state = {
-			searchText: '',
-			sortBy: ''
-		};
+		this.state = {};
 	}
 
 	sortOptions = [
-		{ name: 'Alphanumeric ASC', value: 'A_ASC' },
-		{ name: 'Alphanumeric DESC', value: 'A_DESC' },
-		{ name: 'Year ASC', value: 'Y_ASC' },
-		{ name: 'Year DESC', value: 'Y_DESC' },
+		{ name: 'Alphanumeric ASC', value: 'title_ASC' },
+		{ name: 'Alphanumeric DESC', value: 'title_DESC' },
+		{ name: 'Year ASC', value: 'releaseYear_ASC' },
+		{ name: 'Year DESC', value: 'releaseYear_DESC' },
 	];
 
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -36,18 +34,23 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 	};
 
 	public render(): JSX.Element {
+		const { UpdateFilterOptions } = this.props;
+
 		return (
 			<div className="search">
 				<form onSubmit={this.handleSubmit}>
 					<TextBox
 						debounce={300}
 						minLength={3}
-						onChange={searchText => this.setState({searchText})}
+						onChange={search => UpdateFilterOptions({ search })}
 					/>
 
 					<DropDown
 						items={this.sortOptions}
-						onChange={({value: sortBy}) => this.setState({sortBy})}
+						onChange={({ value }) => {
+							const [by, ordering] = value.split('_');
+							UpdateFilterOptions({ sort: { by, ordering } });
+						}}
 					/>
 				</form>
 			</div>
@@ -57,7 +60,10 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 
 const mapStateToProps = (state: IStore) => state.search;
 
-// const mapDispatchToProps = (dispatch: Dispatch) => (
-// );
+const mapDispatchToProps = (dispatch: Dispatch) =>
+	bindActionCreators(SearchActions, dispatch);
 
-export default connect(mapStateToProps)(Search);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps,
+)(Search);

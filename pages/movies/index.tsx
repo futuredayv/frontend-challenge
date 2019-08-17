@@ -54,7 +54,9 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 			movies &&
 			movies
 				.filter(movie => movie.releaseYear >= 2010)
-				.filter(({ title }) => title.includes(search || ''))
+				.filter(({ title }) =>
+					title.toLowerCase().includes(search.toLowerCase() || ''),
+				)
 		);
 	};
 

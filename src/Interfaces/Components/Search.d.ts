@@ -1,22 +1,21 @@
 //#region Global Imports
 import { Props } from 'prop-types';
-import { IMovies } from '@Interfaces';
+import { IMovies } from '@Interfaces/Pages/Movies';
 //#endregion Global Imports
 
 declare module ISearch {
     export type IProps = IOwnProps & IStateProps & IDispatchProps;
 
     export interface IOwnProps extends Props<{}> {}
+    
+    export interface IState { }
 
-    export interface IState {
-        searchText: string;
-        sortBy: string;
+    export interface IStateProps {
+        filterOptions?: IMovies.IFilterOptions;
     }
 
-    export interface IStateProps { }
-
     export interface IDispatchProps {
-        UpdateFilterOptions(payload: IMovies.IFetchOptions): { }
+        UpdateFilterOptions(payload: any): { }
 	}
 
     module Actions {

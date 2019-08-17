@@ -1,6 +1,6 @@
 //#region Global Imports
 import * as React from 'react';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 //#endregion Global Imports
 
@@ -21,16 +21,16 @@ class TextBox extends React.Component<ITextBox.IProps, ITextBox.IState> {
 			text: '',
 		};
 
-		this.inputs$ = new Subject<string>();
+		this.inputs$ = new BehaviorSubject<string>('');
 	}
 
-	inputs$: Subject<string>;
+	inputs$: BehaviorSubject<string>;
 
 	componentDidMount() {
 		const { debounce, minLength, onChange } = this.props;
 
 		this.inputs$.pipe(debounceTime(debounce || 0)).subscribe(text => {
-			if (minLength && text.length >= minLength) {
+			if (minLength && text.length >= minLength || text.length === 0) {
 				onChange && onChange(text);
 			}
 		});

@@ -62,6 +62,17 @@ export const MoviesReducer = (
 				err,
 			};
 
+		case ActionConsts.Search.UpdateFilterOptions:
+			const { payload: filterOptions } = action;
+
+			return {
+				...state,
+				filterOptions: {
+					...state.filterOptions,
+					...filterOptions
+				}
+			}
+
 		default:
 			return state;
 	}

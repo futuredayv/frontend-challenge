@@ -1,22 +1,20 @@
-import { ActionConsts } from "@Definitions";
+import { ActionConsts } from '@Definitions';
 
 /**
  * ACTIONS
-*/
+ */
 export const SearchActions = {
-	Map: (payload: any) => (
-		{
-			payload,
-			type: ActionConsts.Search.SetReducer
-		}
-	),
+	Map: (payload: any) => ({
+		payload,
+		type: ActionConsts.Search.SetReducer,
+	}),
 
 	Reset: () => ({
-		type: ActionConsts.Search.ResetReducer
+		type: ActionConsts.Search.ResetReducer,
 	}),
 
 	UpdateFilterOptions: (payload: any) => ({
 		payload,
 		type: ActionConsts.Search.UpdateFilterOptions,
-	})
-}
+	}),
+};

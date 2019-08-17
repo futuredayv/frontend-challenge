@@ -14,14 +14,14 @@ declare module IMovies {
         movies?: DemoResponse[];
         err?: string;
         isLoading?: boolean;
-        filterOptions: IFetchOptions;
+        filterOptions: IFilterOptions;
     }
 
-    export interface IFetchOptions {
+    export interface IFilterOptions {
         search: string;
         sort: {
-            by: 'title' | 'releaseYear';
-            ordering: 'ASC' | 'DESC';
+            by: string;
+            ordering: string;
         };
     }
 

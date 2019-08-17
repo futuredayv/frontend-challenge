@@ -33,12 +33,11 @@ export const MoviesActions = {
 			const { movie: movies, series } = groupByProgramType(entries);
 
 			setTimeout(() => {
-
 				dispatch({
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
 					payload: movies,
 				});
-			}, 3000)
+			}, 3000);
 
 			// dispatch({
 			// 	type: ActionConsts.Series.FetchJSON_SUCCESS,
@@ -54,17 +53,13 @@ export const MoviesActions = {
 	},
 };
 
-const groupByProgramType = entries =>
-	entries.reduce(
-		(acc: { [programType: string]: DemoResponse[] }, curr: DemoResponse) =>
-			Object.assign(
-				acc,
-				{
-					[curr.programType]: [
-						...(acc[curr.programType] || []),
-						curr,
-					],
-				},
-				{},
-			),
+const groupByProgramType = (entries: DemoResponse[]) =>
+	entries.reduce((acc: any, curr: DemoResponse) =>
+		Object.assign(
+			acc,
+			{
+				[curr.programType]: [...(acc[curr.programType] || []), curr],
+			},
+			{},
+		),
 	);
