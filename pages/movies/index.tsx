@@ -66,7 +66,7 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		return (
 			filtered &&
 			this.sort(filtered)
-				.slice(0, 20)
+				.slice(0, 21)
 				.map(movie => ({
 					title: movie.title,
 					url: movie.images['Poster Art'].url,

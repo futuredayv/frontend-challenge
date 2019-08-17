@@ -21,13 +21,13 @@ export const GridItem = ({
 			<div className={`GridItem ${isLoaded && 'loaded'}`}>
 				<div className="GridItem__Inner">
 					<div className="poster">
-						<img src={img} onLoad={() => setLoaded(true)} />
+						<img src={img} onLoad={() => setTimeout(() => setLoaded(true), 2000)} />
 					</div>
 
 					<div className="overlay">{name}</div>
 				</div>
 
-				<div className="GridItem__Desc">{desc}</div>
+				<div className="GridItem__Desc"><span>{isLoaded ? desc : 'loading...'}</span></div>
 			</div>
 		</Link>
 	);
