@@ -14,6 +14,15 @@ declare module IMovies {
         movies?: DemoResponse[];
         err?: string;
         isLoading?: boolean;
+        filterOptions: IFetchOptions;
+    }
+
+    export interface IFetchOptions {
+        search: string;
+        sort: {
+            by: 'title' | 'releaseYear';
+            ordering: 'ASC' | 'DESC';
+        };
     }
 
     export interface IDispatchProps {

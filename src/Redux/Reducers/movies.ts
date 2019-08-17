@@ -12,7 +12,14 @@ import { IAction, IMovies } from '@Interfaces';
 const INITIAL_STATE: IMovies.IStateProps = {
 	movies: [],
 	isLoading: true,
-	err: ''
+	err: '',
+	filterOptions: {
+		search: '',
+		sort: {
+			by: 'title',
+			ordering: 'ASC'
+		}
+	}
 };
 
 type IMapPayload = IMovies.Actions.IMapPayload;

@@ -14,14 +14,6 @@ import { IMovies, IStore, DemoResponse } from '@Interfaces';
 import { Layout, GridItem, Search, Toast } from '@Components';
 //#endregion Interface Imports
 
-interface IFetchOptions {
-	search: string;
-	sort: {
-		by: 'title' | 'releaseYear';
-		ordering: 'ASC' | 'DESC';
-	};
-}
-
 class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	constructor(props: IMovies.IProps) {
 		super(props);
@@ -29,31 +21,23 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 		this.state = {};
 	}
 
-	filterData: IFetchOptions = {
-		search: '',
-		sort: {
-			by: 'title',
-			ordering: 'ASC',
-		},
-	};
-
 	componentDidMount() {
 		this.props.FetchJSON();
 	}
 
 	sort = (movies: DemoResponse[]) => {
-		const { ordering, by } = this.filterData.sort;
+		const { ordering, by } = this.props.filterOptions.sort;
 
 		const compareFn = (a: DemoResponse, b: DemoResponse) => {
 			switch (by) {
 				case 'title':
-					return a.title.localeCompare(b.title)
+					return a.title.localeCompare(b.title);
 				case 'releaseYear':
-					return a.releaseYear - b.releaseYear
+					return a.releaseYear - b.releaseYear;
 				default:
 					return 0;
 			}
-		}
+		};
 
 		return movies.sort((a, b) =>
 			ordering === 'ASC' ? compareFn(a, b) : compareFn(b, a),
@@ -61,8 +45,10 @@ class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
 	};
 
 	filter = () => {
-		const { movies } = this.props;
-		const { search } = this.filterData;
+		const {
+			movies,
+			filterOptions: { search },
+		} = this.props;
 
 		return (
 			movies &&
