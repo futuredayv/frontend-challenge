@@ -10,7 +10,7 @@ export class Presentational extends Component<IMovies.IProps> {
 		return (
 			<Layout title="Popular Movies">
 				{isLoading || !!err ? (
-					<Toast isLoading err={!!err} />
+					<Toast isLoading={isLoading} err={err} />
 				) : (
 					<>
 						<Search />

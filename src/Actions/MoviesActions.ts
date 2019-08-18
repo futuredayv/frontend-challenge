@@ -31,6 +31,9 @@ export const MoviesActions = {
 
 			const payload = groupByProgramType(entries);
 
+			console.table(payload[0].slice(0, 3));
+			console.table(payload[1].slice(0, 3));
+
 			setTimeout(() => {
 				dispatch({
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
@@ -47,6 +50,6 @@ export const MoviesActions = {
 };
 
 const groupByProgramType = (entries: DemoResponse[]) =>
-	['movie', 'series'].map(programType => {
-		entries.filter(e => e.programType === programType);
-	});
+	['movie', 'series'].map(programType => ({
+		[programType]: entries.filter(e => e.programType === programType),
+	}));
