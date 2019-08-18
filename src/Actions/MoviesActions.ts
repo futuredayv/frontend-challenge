@@ -29,17 +29,15 @@ export const MoviesActions = {
 			const result = await fetch(SAMPLE_JSON);
 			const { entries } = await result.json();
 
-			const payload = groupByProgramType(entries);
-
-			console.table(payload[0].slice(0, 3));
-			console.table(payload[1].slice(0, 3));
+			const [movies, series] = groupByProgramType(entries);
 
 			setTimeout(() => {
 				dispatch({
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
-					payload,
+					payload: {movies, series},
 				});
 			}, 2000);
+
 		} catch (err) {
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_FAIL,
@@ -50,6 +48,6 @@ export const MoviesActions = {
 };
 
 const groupByProgramType = (entries: DemoResponse[]) =>
-	['movie', 'series'].map(programType => ({
-		[programType]: entries.filter(e => e.programType === programType),
-	}));
+	['movie', 'series'].map(programType =>
+		entries.filter(e => e.programType === programType),
+	);

@@ -51,7 +51,7 @@
 	}
 
 	&__Inner {
-		min-height: 160px;
+		min-height: 165px;
 		position: relative;
 		border-radius: 4px;
 		overflow: hidden;
@@ -59,6 +59,7 @@
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 		.poster {
+			min-height: inherit;
 			background: linear-gradient(
 				to right,
 				$black-02,
@@ -68,9 +69,10 @@
 			animation: loading normal infinite 2s ease;
 
 			img {
-				transition: transform 0.3s ease, opacity 0.6s ease;
+				display: block;
 				width: 100%;
 				opacity: 0;
+				transition: transform 0.3s ease, opacity 0.6s ease;
 			}
 		}
 
@@ -99,10 +101,10 @@
 		transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
 		span {
+			border-radius: 4px;
 			color: transparent;
 			background-color: #aaa;
 			transition: color 0.3s ease 0.3s, background-color 0.3s ease;
-			border-radius: 4px;
 		}
 	}
 }
