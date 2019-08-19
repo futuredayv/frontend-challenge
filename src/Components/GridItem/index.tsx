@@ -21,7 +21,7 @@ export const GridItem = ({
 			<div className={`GridItem ${isLoaded && 'loaded'}`}>
 				<div className="GridItem__Inner">
 					<div className="poster">
-						<img src={img} onLoad={() => setTimeout(() => setLoaded(true), 2000)} />
+						<img src={img} onLoad={() => setLoaded(true)} />
 					</div>
 
 					<div className="overlay">{name}</div>
