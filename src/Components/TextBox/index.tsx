@@ -30,7 +30,7 @@ class TextBox extends React.Component<ITextBox.IProps, ITextBox.IState> {
 		const { debounce, minLength, onChange } = this.props;
 
 		this.inputs$.pipe(debounceTime(debounce || 0)).subscribe(text => {
-			if (minLength && text.length >= minLength || text.length === 0) {
+			if ((minLength && text.length >= minLength) || text.length === 0) {
 				onChange && onChange(text);
 			}
 		});

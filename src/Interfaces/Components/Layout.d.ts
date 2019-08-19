@@ -5,7 +5,7 @@ import { Props } from 'prop-types';
 declare module ILayout {
     export interface IProps extends Props<{}> {
         title: string;
-        children;
+        children?;
     }
 
 }

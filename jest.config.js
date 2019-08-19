@@ -12,8 +12,9 @@ module.exports = {
 	setupFiles: ['<rootDir>/jest.setup.ts'],
 	coverageReporters: ['json', 'lcov', 'text', 'text-summary'],
 	moduleNameMapper: {
-		'\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
+		'\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
 			'<rootDir>/__mocks__/mocks.js',
+		'\\.svg$': '<rootDir>/__mocks__/fileMock.ts',
 		'\\.(css|less|scss|html)$': '<rootDir>/__mocks__/mocks.js',
 		'^@([A-Z].*)$': '<rootDir>/src/$1',
 	},

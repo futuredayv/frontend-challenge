@@ -4,10 +4,12 @@ import { Heading } from '@Components';
 
 describe('Components', () => {
 	describe('Heading', () => {
-		it('should render without throwing an error', () => {
-			const wrap = shallow(<Heading text={'World'} />);
+		it('should render and print title', () => {
+			const expectedTitle = `Well, Let's Head This`;
 
-			expect(wrap.find('div.title').exists()).toBe(true);
+			const wrap = shallow(<Heading title={expectedTitle} />);
+
+			expect(wrap.find('.header__sub__title').exists()).toBe(true);
 		});
 	});
 });
