@@ -1,1 +1,29 @@
 
+.Home {
+
+    .GridItem {
+    
+        .GridItem__Inner {
+    
+            .overlay {
+                color: #fff;
+                opacity: 1;
+            }
+        
+            img {
+                filter: blur(4px);
+            }
+        }
+    
+        &:hover .GridItem__Inner {
+    
+            .overlay {
+                opacity: 0.4 !important;
+            }
+    
+            img {
+                filter: blur(0px);
+            }
+        }
+    }
+}

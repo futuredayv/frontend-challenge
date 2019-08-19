@@ -26,7 +26,7 @@ export class HomePage extends React.Component<
 		{
 			name: 'Series',
 			desc: 'Popular Series',
-			img: 'https://streamcoimg-a.akamaihd.net/000/376/201/376201-PosterArt-4f91ac739ae5147a51ae3abc78d55f2d.jpg',
+			img: 'https://streamcoimg-a.akamaihd.net/000/109/1/1091-PosterArt-bbcf03acc18eebfc343754b05f39738f.jpg',
 			routerLink: '/series',
 		},
 		{
@@ -40,11 +40,13 @@ export class HomePage extends React.Component<
 	public render(): JSX.Element {
 		return (
 			<Layout title="Popular Titles">
-				<div className="grid-area">
-					{this.pages.map((page, i) => (
-						<GridItem key={i} {...page} />
-					))}
-				</div>
+				<section className="Home">
+					<div className="grid-area">
+						{this.pages.map((page, i) => (
+							<GridItem key={i} {...page} />
+						))}
+					</div>
+				</section>
 			</Layout>
 		);
 	}
