@@ -1,6 +1,8 @@
 @import '../../Styles/variables.scss';
 
 .toast {
+	margin: 32px 0;
+	
 	&__container {
 		border-radius: 4px;
 		padding: 8px 16px;
