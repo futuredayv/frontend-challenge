@@ -23,9 +23,11 @@ describe('TextBox', () => {
 	});
 
 	it('should handle changes', () => {
+		jest.useFakeTimers();
+
 		const wrap = mount(<TextBox {...props} />);
 
-		const spied = jest.spyOn(wrap.instance(), 'handleChange');
+		const spied = jest.spyOn(wrap.instance(), 'handleDebouncedChange');
 
 		wrap.instance().forceUpdate();
 
@@ -35,6 +37,10 @@ describe('TextBox', () => {
 			});
 		}
 
-		expect(spied).toBeCalled();
+		expect(spied).not.toBeCalled();
+
+		jest.runAllTimers();
+
+		expect(spied).toBeCalledTimes(1);
 	});
 });

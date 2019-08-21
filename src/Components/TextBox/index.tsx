@@ -27,13 +27,18 @@ class TextBox extends React.Component<ITextBox.IProps, ITextBox.IState> {
 	inputs$: BehaviorSubject<string>;
 
 	componentDidMount() {
-		const { debounce, minLength, onChange } = this.props;
+		const { debounce, minLength } = this.props;
 
 		this.inputs$.pipe(debounceTime(debounce || 0)).subscribe(text => {
 			if ((minLength && text.length >= minLength) || text.length === 0) {
-				onChange && onChange(text);
+				this.handleDebouncedChange(text);
 			}
 		});
+	}
+
+	handleDebouncedChange = (text: string) => {
+		const { onChange } = this.props;
+		onChange && onChange(text);
 	}
 
 	handleChange = ({
