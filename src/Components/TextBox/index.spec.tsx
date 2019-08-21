@@ -1,17 +1,11 @@
 import * as React from 'react';
-import { shallow, mount, ReactWrapper } from 'enzyme';
+import { mount } from 'enzyme';
 import TextBox from '../TextBox';
 
 const props = {
 	debounce: 300,
 	minLength: 3,
 	onChange: jest.fn(),
-};
-
-const changeEventArgs = {
-	currentTarget: {
-		value: 'qwe',
-	},
 };
 
 const times = (count: number) => Array(count).fill('');
