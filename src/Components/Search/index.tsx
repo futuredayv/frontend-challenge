@@ -14,11 +14,9 @@ import { TextBox, DropDown } from '@Components';
 import { SearchActions } from '@Actions';
 //#endregion Interface Imports
 
-class Search extends React.Component<ISearch.IProps, ISearch.IState> {
+export class SearchComponent extends React.Component<ISearch.IProps, ISearch.IState> {
 	constructor(props: ISearch.IProps) {
 		super(props);
-
-		this.state = {};
 	}
 
 	sortOptions = [
@@ -28,17 +26,12 @@ class Search extends React.Component<ISearch.IProps, ISearch.IState> {
 		{ name: 'Year DESC', value: 'releaseYear_DESC' },
 	];
 
-	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		console.log(this.state);
-	};
-
 	public render(): JSX.Element {
 		const { UpdateFilterOptions } = this.props;
 
 		return (
 			<div className="search">
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={e => e.preventDefault()}>
 					<TextBox
 						debounce={300}
 						minLength={3}
@@ -66,4 +59,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(Search);
+)(SearchComponent);
