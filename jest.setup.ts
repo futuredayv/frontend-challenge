@@ -31,15 +31,6 @@ nock('http://localhost:3000')
 	.get('/api/404')
 	.reply(404, { success: false });
 
-nock('https://raw.githubusercontent.com')
-	.get('/futuredayv/frontend-challenge/master/feed/sample.json')
-	.reply(200, {
-		entries: [
-			{ title: 'John Wick', programType: 'movie' },
-			{ title: 'Sherlock', programType: 'series' },
-		],
-	});
-
 //env variables
 require('dotenv').config({ path: '.env.test' });
 
