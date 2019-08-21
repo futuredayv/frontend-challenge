@@ -1,5 +1,5 @@
 //#region Global Imports
-import React, { useState } from 'react';
+import * as React from 'react';
 import Link from 'next/link';
 //#endregion Global Imports
 import './style.scss';
@@ -14,7 +14,7 @@ export const GridItem = ({
 	img,
 	routerLink = '',
 }: IGridItem.IProps): JSX.Element => {
-	const [isLoaded, setLoaded] = useState(false);
+	const [isLoaded, setLoaded] = React.useState(false);
 
 	return (
 		<Link href={routerLink || ''}>
