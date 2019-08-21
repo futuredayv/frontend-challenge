@@ -10,31 +10,33 @@ const props = {
 
 const times = (count: number) => Array(count).fill('');
 
-describe('TextBox', () => {
-	it('should be mounted successfully', () => {
-		const wrap = mount(<TextBox {...props} />);
-		expect(wrap).toBeTruthy();
-	});
+describe('Components', () => {
+	describe('TextBox', () => {
+		it('should be mounted successfully', () => {
+			const wrap = mount(<TextBox {...props} />);
+			expect(wrap).toBeTruthy();
+		});
 
-	it('should handle changes', () => {
-		jest.useFakeTimers();
+		it('should handle changes', () => {
+			jest.useFakeTimers();
 
-		const wrap = mount(<TextBox {...props} />);
+			const wrap = mount(<TextBox {...props} />);
 
-		const spied = jest.spyOn(wrap.instance(), 'handleDebouncedChange');
+			const spied = jest.spyOn(wrap.instance(), 'handleDebouncedChange');
 
-		wrap.instance().forceUpdate();
+			wrap.instance().forceUpdate();
 
-		for (const letter of times(props.minLength)) {
-			wrap.find('input').simulate('change', {
-				currentTarget: { value: `${wrap.state('text')}i` },
-			});
-		}
+			for (const letter of times(props.minLength)) {
+				wrap.find('input').simulate('change', {
+					currentTarget: { value: `${wrap.state('text')}i` },
+				});
+			}
 
-		expect(spied).not.toBeCalled();
+			expect(spied).not.toBeCalled();
 
-		jest.runAllTimers();
+			jest.runAllTimers();
 
-		expect(spied).toBeCalledTimes(1);
+			expect(spied).toBeCalledTimes(1);
+		});
 	});
 });
