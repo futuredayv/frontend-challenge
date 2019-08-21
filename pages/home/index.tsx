@@ -11,7 +11,7 @@ import './index.scss';
 //#region Interface Imports
 import { IHomePage, IStore } from '@Interfaces';
 // import { Layout, GridItem } from '@Components';
-import { Search } from '@Components';
+import { Layout, GridItem } from '@Components';
 import { HomeActions } from '@Actions';
 //#endregion Interface Imports
 
@@ -42,16 +42,15 @@ export class HomePage extends React.Component<
 
 	public render(): JSX.Element {
 		return (
-			// <Layout title="Popular Titles">
-			// 	<section className="Home">
-			// 		<div className="grid-area">
-			// 			{this.pages.map((page, i) => (
-			// 				<GridItem key={i} {...page} />
-			// 			))}
-			// 		</div>
-			// 	</section>
-			// </Layout>
-			<Search />
+			<Layout title="Popular Titles">
+				<section className="Home">
+					<div className="grid-area">
+						{this.pages.map((page, i) => (
+							<GridItem key={i} {...page} />
+						))}
+					</div>
+				</section>
+			</Layout>
 		);
 	}
 }

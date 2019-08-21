@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { ISeries } from '@Interfaces';
 
 import { Layout, Search, Toast } from '@Components';
 
-export class Presentational extends Component<ISeries.IProps> {
+export class Presentational extends React.Component<ISeries.IProps> {
 	render() {
 		const { err, isLoading, children } = this.props;
 
