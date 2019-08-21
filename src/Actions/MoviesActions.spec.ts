@@ -41,7 +41,7 @@ describe('Actions', () => {
 
 			store.dispatch(MoviesActions.FetchJSON()).then(() => {
 				expect(store.getActions()).toEqual(expectedActions)
-			})
+			}).catch()
 		});
 	});
 });
