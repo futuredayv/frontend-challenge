@@ -1,5 +1,5 @@
 //#region Global Imports
-import React from 'react';
+import * as React from 'react';
 //#endregion Global Imports
 
 //#region Interface Imports
