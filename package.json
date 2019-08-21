@@ -46,6 +46,7 @@
 	"devDependencies": {
 		"@types/enzyme": "^3.9.1",
 		"@types/enzyme-adapter-react-16": "^1.0.5",
+		"@types/fetch-mock": "^7.3.1",
 		"@types/jest": "^24.0.12",
 		"@types/next": "^7.0.6",
 		"@types/next-redux-wrapper": "^2.0.2",
@@ -65,6 +66,7 @@
 		"eslint-config-prettier": "^4.3.0",
 		"eslint-plugin-prettier": "^3.1.0",
 		"eslint-plugin-react": "^7.13.0",
+		"fetch-mock": "^7.3.9",
 		"jest": "^24.7.1",
 		"nodemon": "^1.18.11",
 		"nyc": "^14.1.0",

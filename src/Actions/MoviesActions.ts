@@ -22,6 +22,14 @@ export const MoviesActions = {
 		type: ActionConsts.Movies.ResetReducer,
 	}),
 
+	TestFlight: () => (dispatch: Dispatch) => {
+		dispatch({type: ActionConsts.Movies.FetchJSON});
+		return fetch('https://raw.githubusercontent.com/futuredayv/frontend-challenge/master/feed/sample.json')
+			.then(res => res.json())
+			.then(data => dispatch({type: ActionConsts.Movies.FetchJSON_SUCCESS, payload: {isLoading: false, testProp: 'bla'}))
+			.catch(err => dispatch({type: ActionConsts.Movies.FetchJSON_FAIL, payload: {isLoading: false, err: `!!!My fault :( ${err}`}}))
+	},
+
 	FetchJSON: () => async (dispatch: Dispatch) => {
 		dispatch({ type: ActionConsts.Movies.FetchJSON });
 
