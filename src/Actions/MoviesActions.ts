@@ -34,14 +34,13 @@ export const MoviesActions = {
 			setTimeout(() => {
 				dispatch({
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
-					payload: {movies, series},
+					payload: { movies, series, isLoading: false },
 				});
 			}, 2000);
-
 		} catch (err) {
 			dispatch({
 				type: ActionConsts.Movies.FetchJSON_FAIL,
-				payload: `Error: ${err}`,
+				payload: { err: `Error: ${err}`, isLoading: false },
 			});
 		}
 	},

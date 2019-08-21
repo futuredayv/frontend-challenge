@@ -9,7 +9,7 @@ import { IAction, IMovies } from '@Interfaces';
 /**
  * INITIAL_STATE
  */
-const INITIAL_STATE: IMovies.IStateProps = {
+export const INITIAL_STATE: IMovies.IStateProps = {
 	movies: [],
 	series: [],
 	isLoading: true,
@@ -48,17 +48,13 @@ export const MoviesReducer = (
 		case ActionConsts.Movies.FetchJSON_SUCCESS:
 			return {
 				...state,
-				isLoading: false,
 				...action.payload
 			};
 
 		case ActionConsts.Movies.FetchJSON_FAIL:
-			const { payload: err } = action;
-
 			return {
 				...state,
-				isLoading: false,
-				err,
+				...action.payload
 			};
 
 		case ActionConsts.Search.UpdateFilterOptions:
