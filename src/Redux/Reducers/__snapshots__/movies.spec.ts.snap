@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reducers Movies Reducer should handle Fetch_JSON_FAIL 1`] = `
+Object {
+  "err": "Oops! Something Went Wrong.",
+  "filterOptions": Object {
+    "search": "",
+    "sort": Object {
+      "by": "title",
+      "ordering": "ASC",
+    },
+  },
+  "isLoading": false,
+  "movies": Array [],
+  "series": Array [],
+}
+`;
+
+exports[`Reducers Movies Reducer should handle FetchJSON 1`] = `
+Object {
+  "err": "",
+  "filterOptions": Object {
+    "search": "",
+    "sort": Object {
+      "by": "title",
+      "ordering": "ASC",
+    },
+  },
+  "isLoading": true,
+  "movies": Array [],
+  "series": Array [],
+}
+`;
+
+exports[`Reducers Movies Reducer should handle FetchJSON_SUCCESS 1`] = `
+Object {
+  "err": "",
+  "filterOptions": Object {
+    "search": "",
+    "sort": Object {
+      "by": "title",
+      "ordering": "ASC",
+    },
+  },
+  "isLoading": true,
+  "movies": Array [
+    Object {
+      "title": "John Wick",
+    },
+  ],
+  "series": Array [
+    Object {
+      "title": "Sherlock",
+    },
+  ],
+}
+`;
+
+exports[`Reducers Movies Reducer should handle UpdateFilterOptions 1`] = `
+Object {
+  "err": "",
+  "filterOptions": Object {
+    "search": "john",
+    "sort": Object {
+      "by": "title",
+      "ordering": "ASC",
+    },
+  },
+  "isLoading": true,
+  "movies": Array [],
+  "series": Array [],
+}
+`;

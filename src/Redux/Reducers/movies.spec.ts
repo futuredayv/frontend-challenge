@@ -9,58 +9,46 @@ describe('Reducers', () => {
 				MoviesReducer(INITIAL_STATE, {
 					type: ActionConsts.Movies.FetchJSON,
 				}),
-			).toEqual({ ...INITIAL_STATE, isLoading: true });
+			).toMatchSnapshot()
 		});
 
 		it('should handle FetchJSON_SUCCESS', () => {
-			const payload = {
-				movies: [{ title: 'John Wick' }],
-				series: [{ title: 'Sherlock' }],
-			};
-
 			expect(
 				MoviesReducer(INITIAL_STATE, {
 					type: ActionConsts.Movies.FetchJSON_SUCCESS,
-					payload,
+					payload: {
+						movies: [{ title: 'John Wick' }],
+						series: [{ title: 'Sherlock' }],
+					}
 				}),
-			).toEqual({ ...INITIAL_STATE, ...payload });
+			).toMatchSnapshot()
 		});
 
 		it('should handle Fetch_JSON_FAIL', () => {
-			const payload = {
-				isLoading: false,
-				err: 'Oops! Something Went Wrong.',
-			};
-
 			expect(
 				MoviesReducer(INITIAL_STATE, {
 					type: ActionConsts.Movies.FetchJSON_FAIL,
-					payload,
+					payload: {
+						isLoading: false,
+						err: 'Oops! Something Went Wrong.',
+					}
 				}),
-			).toEqual({ ...INITIAL_STATE, ...payload });
+			).toMatchSnapshot()
 		});
 
 		it('should handle UpdateFilterOptions', () => {
-			const payload = {
-				search: 'john',
-				sort: {
-					by: 'title',
-					ordering: 'ASC',
-				},
-			};
-
 			expect(
 				MoviesReducer(INITIAL_STATE, {
 					type: ActionConsts.Search.UpdateFilterOptions,
-					payload,
+					payload: {
+						search: 'john',
+						sort: {
+							by: 'title',
+							ordering: 'ASC',
+						},
+					},
 				}),
-			).toEqual({
-				...INITIAL_STATE,
-				filterOptions: {
-					...INITIAL_STATE.filterOptions,
-					...payload,
-				},
-			});
+			).toMatchSnapshot()
 		});
 	});
 });
