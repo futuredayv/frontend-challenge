@@ -35,28 +35,28 @@ const getRandomQuote = (): JSX.Element => {
 	return (
 		<>
 			<div className="quote">"{quote}"</div>
-			<div className="movie">― {movie}</div>
-			<div className="year">{year}</div>
+			<div className="flex-group">
+				<div className="movie">― {movie}</div>
+				<div className="year">{year}</div>
+			</div>
 		</>
 	);
 };
 
 export const Toast = ({ isLoading, err }: IToast.IProps): JSX.Element => {
-	const [quote, setQuote] = useState((<>Behold the Fancy Quote!</>));
+	const [quote, setQuote] = useState(<>Behold the Fancy Quote!</>);
 
 	useEffect(() => {
-		setQuote(getRandomQuote())
-	}, [isLoading])
-	
+		setQuote(getRandomQuote());
+	}, [isLoading]);
+
 	return (
 		<div className="toast">
 			{(isLoading || err) && (
 				<div className={`toast__container ${err && 'error'}`}>
 					<h4>{isLoading ? 'Loading' : 'Error'}</h4>
 					<div className="toast__container__text">
-						{isLoading
-							? quote
-							: 'Oops! Something went wrong.'}
+						{isLoading ? quote : 'Oops! Something went wrong.'}
 					</div>
 				</div>
 			)}

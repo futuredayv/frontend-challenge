@@ -1,0 +1,14 @@
+
+#__next {
+
+    @media (min-width: 768px) {
+
+        .toast__container__text {
+            flex-direction: unset;
+
+            .flex-group {
+                margin: 8px;
+            }
+        }
+    }
+}

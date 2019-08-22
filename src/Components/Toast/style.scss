@@ -1,32 +1,20 @@
 @import '../../Styles/variables.scss';
+@import 'index.responsive.scss';
 
 .toast {
 	margin: 32px 0;
-	
+
 	&__container {
 		border-radius: 4px;
 		padding: 8px 16px;
 		font-size: 16px;
 		font-family: ubuntu;
-        color: $white-07;
-        transform-origin: top left;
-        background-color: $primary-color;
+		color: $white-07;
+		transform-origin: top left;
+		background-color: $primary-color;
 		transition: background-color 0.4s,
 			transform 0.2s cubic-bezier(0.32, 2.12, 0.58, 1),
-            box-shadow 0.2s cubic-bezier(0.32, 2.12, 0.58, 1);
-
-        .quote {
-            font-style: italic;
-            color: #fff;
-        }
-
-        .movie {
-            margin: 0 8px;
-        }
-
-        .year {
-            font-weight: bold;
-        }
+			box-shadow 0.2s cubic-bezier(0.32, 2.12, 0.58, 1);
 
 		h4 {
 			margin: 8px 0;
@@ -35,12 +23,31 @@
 
 		&__text {
 			display: flex;
+			flex-direction: column;
 			padding: 16px 0;
+
+			> div {
+				margin: 8px 0;
+			}
+			
+			.quote {
+				font-style: italic;
+				color: #fff;
+			}
+
+			.flex-group {
+				display: flex;
+	
+				.year {
+					margin: 0 8px;
+					font-weight: bold;
+				}
+			}
 		}
 
 		&.error {
-            background-color: red;
-            box-shadow: 0 0 40px 10px $black-02;
+			background-color: red;
+			box-shadow: 0 0 40px 10px $black-02;
 			transform: perspective(800px) translateZ(80px) rotateZ(5deg);
 		}
 	}
