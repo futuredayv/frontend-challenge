@@ -12,6 +12,14 @@
     @media (min-width: 768px) {
 
         .GridItem {
+            width: calc(100% / 4);
+        }
+    }
+
+
+    @media (min-width: 992px) {
+
+        .GridItem {
             width: calc(100% / 7);
         }
     }
