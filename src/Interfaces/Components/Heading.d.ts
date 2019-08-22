@@ -8,6 +8,6 @@ declare namespace IHeading {
 	}
 
 	export interface IState {
-		menuPaneActive: boolean
+		menuPaneActive?: boolean
 	}
 }
