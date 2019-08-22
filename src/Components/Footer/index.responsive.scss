@@ -1,0 +1,44 @@
+
+#__next {
+
+    @media (min-width: 768px) {
+
+        .footer__menu {
+            flex-direction: unset;
+
+            .menu-item {
+                border-right: 1px solid $white-07;
+                padding: 0 8px;
+
+                &:first-child {
+                    padding-left: 0;
+                }
+        
+                &:last-child {
+                    border: none;
+                }
+            }
+        }
+
+        .footer__copyright {
+            font-size: unset;
+        }
+
+        .footer__backlinks {
+            justify-content: space-between;
+
+            .social,
+            .marketplace {
+                flex-direction: unset;
+            }
+
+            .icon {
+                margin: 0 8px;
+            }
+
+            .badge:last-child {
+                height: 40px;
+            }
+        }
+    }
+}
