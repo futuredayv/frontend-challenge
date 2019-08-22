@@ -1,5 +1,6 @@
 //#region Global Imports
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 //#endregion Global Imports
 import './style.scss';
 
@@ -40,17 +41,25 @@ const getRandomQuote = (): JSX.Element => {
 	);
 };
 
-export const Toast = ({ isLoading, err }: IToast.IProps): JSX.Element => (
-	<div className="toast">
-		{(isLoading || err) && (
-			<div className={`toast__container ${err && 'error'}`}>
-				<h4>{isLoading ? 'Loading' : 'Error'}</h4>
-				<div className="toast__container__text">
-					{isLoading
-						? getRandomQuote()
-						: 'Oops! Something went wrong.'}
+export const Toast = ({ isLoading, err }: IToast.IProps): JSX.Element => {
+	const [quote, setQuote] = useState((<>Behold the Fancy Quote!</>));
+
+	useEffect(() => {
+		setQuote(getRandomQuote())
+	}, [isLoading])
+	
+	return (
+		<div className="toast">
+			{(isLoading || err) && (
+				<div className={`toast__container ${err && 'error'}`}>
+					<h4>{isLoading ? 'Loading' : 'Error'}</h4>
+					<div className="toast__container__text">
+						{isLoading
+							? quote
+							: 'Oops! Something went wrong.'}
+					</div>
 				</div>
-			</div>
-		)}
-	</div>
-);
+			)}
+		</div>
+	);
+};

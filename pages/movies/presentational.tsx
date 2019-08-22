@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { IMovies } from '@Interfaces';
 
-import { Layout, SearchComponent, Toast } from '@Components';
+import { Layout, Search, Toast } from '@Components';
 
 export class Presentational extends React.Component<IMovies.IProps> {
 	render() {
@@ -13,7 +13,7 @@ export class Presentational extends React.Component<IMovies.IProps> {
 					<Toast isLoading={isLoading} err={err} />
 				) : (
 					<>
-						<SearchComponent />
+						<Search />
 						<div className="grid-area">{children}</div>
 					</>
 				)}

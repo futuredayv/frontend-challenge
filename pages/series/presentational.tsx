@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ISeries } from '@Interfaces';
 
-import { Layout, SearchComponent, Toast } from '@Components';
+import { Layout, Search, Toast } from '@Components';
 
 export class Presentational extends React.Component<ISeries.IProps> {
 	render() {
@@ -10,10 +10,10 @@ export class Presentational extends React.Component<ISeries.IProps> {
 		return (
 			<Layout title="Popular Series">
 				{isLoading || !!err ? (
-					<Toast isLoading err={!!err} />
+					<Toast isLoading={isLoading} err={err} />
 				) : (
 					<>
-						<SearchComponent />
+						<Search />
 						<div className="grid-area">{children}</div>
 					</>
 				)}
