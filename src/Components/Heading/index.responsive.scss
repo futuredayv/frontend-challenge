@@ -61,12 +61,20 @@
         .brand {
             font-size: 32px;
         }
+
+        .menu-toggle {
+            display: none;
+        }
         
         .nav-pane {
         
             nav {
                 flex-direction: unset;
             }
+        }
+
+        .header__sub__title {
+            font-size: 24px;
         }
     }
     

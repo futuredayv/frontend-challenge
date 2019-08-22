@@ -7,5 +7,7 @@ declare namespace IHeading {
 		title: string;
 	}
 
-	export interface IState {}
+	export interface IState {
+		menuPaneActive: boolean
+	}
 }
