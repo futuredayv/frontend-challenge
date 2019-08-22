@@ -21,16 +21,23 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 							<div className="brand">DEMO Streaming</div>
 						</Link>
 
-						<nav>
-							<div className="menu-item">Login</div>
-							<div className="menu-item cta shadow-radius-box">Start Your Free Trial</div>
-						</nav>
+						<div className="nav-pane">
+							<nav>
+								<div className="menu-item">Login</div>
+								<div className="menu-item cta shadow-radius-box">
+									Start Your Free Trial
+								</div>
+							</nav>
+							<div className="nav-pane__underlay"></div>
+						</div>
 					</div>
 				</div>
 
 				<div className="header__sub">
 					<div className="container">
-						<div className="header__sub__title">{this.props.title}</div>
+						<div className="header__sub__title">
+							{this.props.title}
+						</div>
 					</div>
 				</div>
 			</header>
