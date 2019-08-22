@@ -1,24 +1,11 @@
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
-import HomePage from '../home/index';
-
-import { Provider } from 'react-redux';
-
-import initStore from '@Redux/store';
+import { mount } from 'enzyme';
+import { HomePage } from '../home';
 
 describe('HomePage', () => {
-	it('should render without throwing an error', () => {
-		const wrap = shallow(<HomePage />);
-		expect(wrap).toBeTruthy();
-	});
+	it('should render as expected', () => {
+		const wrap = mount(<HomePage />);
 
-	it('should render without throwing an error', () => {
-		const wrap = mount(
-			<Provider store={initStore()}>
-				<HomePage />
-			</Provider>,
-		);
-
-		// expect(wrap.find('.GridItem')).toHaveLength(21);
+		expect(wrap.find('.GridItem')).toHaveLength(2);
 	});
 });

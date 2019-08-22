@@ -16,7 +16,7 @@ import './style.scss';
 import { IMovies, IStore } from '@Interfaces';
 //#endregion Interface Imports
 
-class Movies extends React.Component<IMovies.IProps, IMovies.IState> {
+export class MoviesPage extends React.Component<IMovies.IProps, IMovies.IState> {
 	constructor(props: IMovies.IProps) {
 		super(props);
 
@@ -59,4 +59,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(Movies);
+)(MoviesPage);

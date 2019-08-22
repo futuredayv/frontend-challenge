@@ -16,7 +16,7 @@ import './style.scss';
 import { ISeries, IStore } from '@Interfaces';
 //#endregion Interface Imports
 
-class Series extends React.Component<ISeries.IProps, ISeries.IState> {
+export class SeriesPage extends React.Component<ISeries.IProps, ISeries.IState> {
 	constructor(props: ISeries.IProps) {
 		super(props);
 	}
@@ -57,4 +57,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps,
-)(Series);
+)(SeriesPage);
