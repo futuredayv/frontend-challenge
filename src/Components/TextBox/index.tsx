@@ -39,7 +39,7 @@ class TextBox extends React.Component<ITextBox.IProps, ITextBox.IState> {
 	handleDebouncedChange = (text: string) => {
 		const { onChange } = this.props;
 		onChange && onChange(text);
-	}
+	};
 
 	handleChange = ({
 		currentTarget: { value },
