@@ -14,7 +14,10 @@ import { TextBox, DropDown } from '@Components';
 import { SearchActions } from '@Actions';
 //#endregion Interface Imports
 
-export class SearchComponent extends React.Component<ISearch.IProps, ISearch.IState> {
+export class SearchComponent extends React.Component<
+	ISearch.IProps,
+	ISearch.IState
+> {
 	constructor(props: ISearch.IProps) {
 		super(props);
 	}
