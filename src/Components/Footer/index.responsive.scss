@@ -1,6 +1,23 @@
 
 #__next {
 
+    @media (min-width: 567px) and (max-width: 767px) {
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .footer__backlinks {
+                padding: unset;
+
+                .social {
+                    margin: 0 16px 0;
+                }
+            }
+        }
+    }
+
     @media (min-width: 768px) {
 
         .footer__menu {

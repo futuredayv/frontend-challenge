@@ -1,15 +1,18 @@
 
 #__next {
 
+    @media (min-width: 576px) { }
+
+
     @media (max-width: 767px) {
 
         .nav-pane {
-			position: absolute;
+			position: fixed;
 			top: 0;
 			left: 0;
 			z-index: 1;
-			width: 100vw;
-            height: 100vh;
+			width: 100%;
+            height: 100%;
             transform: translateX(-100%);
             transition: transform 0s 0.3s;
             
@@ -52,8 +55,6 @@
             }
 		}
     }
-
-    @media (min-width: 576px) { }
     
     
     @media (min-width: 768px) {

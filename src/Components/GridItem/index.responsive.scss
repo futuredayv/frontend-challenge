@@ -1,6 +1,14 @@
 
 #__next {
 
+    @media (min-width: 567px) {
+
+        .GridItem {
+            width: calc(100% / 3);
+        }
+    }
+
+
     @media (min-width: 768px) {
 
         .GridItem {

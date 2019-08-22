@@ -25,18 +25,21 @@ export const Footer: React.FunctionComponent<IFooter.IProps> = (
 ): JSX.Element => (
 	<footer>
 		<div className="container">
-			<div className="footer__menu">
-				{footerMenu.map(({ name, path }, i) => (
-					<div className="menu-item" key={i}>
-						<Link href={path}>
-							<a>{name}</a>
-						</Link>
-					</div>
-				))}
-			</div>
+			<div className="flex-group">
+				<div className="footer__menu">
+					{footerMenu.map(({ name, path }, i) => (
+						<div className="menu-item" key={i}>
+							<Link href={path}>
+								<a>{name}</a>
+							</Link>
+						</div>
+					))}
+				</div>
 
-			<div className="footer__copyright">
-				Copyright © {new Date().getUTCFullYear()} DEMO Streaming. All Rights Reserved.
+				<div className="footer__copyright">
+					Copyright © {new Date().getUTCFullYear()} DEMO Streaming.
+					All Rights Reserved.
+				</div>
 			</div>
 
 			<div className="footer__backlinks">
