@@ -1,5 +1,6 @@
 //#region Global Imports
 import App, { Container, NextAppContext } from 'next/app';
+import Head from 'next/head';
 import * as React from 'react';
 
 import { Provider } from 'react-redux';
@@ -32,6 +33,12 @@ class MyApp extends App<IApp.IProps> {
 		return (
 			<Container>
 				<Provider store={store}>
+					<Head>
+						<meta
+							name="viewport"
+							content="width=device-width, initial-scale=1.0"
+						/>
+					</Head>
 					<Component {...pageProps} />
 				</Provider>
 			</Container>
