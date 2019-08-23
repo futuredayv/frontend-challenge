@@ -1,4 +1,6 @@
-@import 'variables.scss';
+// @import 'variables.scss';
+@import 'mixins.scss';
+
 @import 'responsive.scss';
 
 
@@ -41,7 +43,5 @@ a {
 }
 
 .shadow-radius-box {
-    box-shadow: 0 0 16px $black-02;
-    border-radius: 4px;
-    overflow: hidden;
+    @include shadowRadiusBox()
 }

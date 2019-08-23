@@ -21,11 +21,27 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 		};
 	}
 
+	navLinks: IHeading.INavLink[] = [
+		{ name: 'Movies', routerLink: '/movies' },
+		{ name: 'Series', routerLink: '/series' },
+		{ name: 'Login' },
+		{ name: 'Start Your Free Trial', cta: true },
+	];
+
 	toggleMenuPane = () => {
 		this.setState(state => ({
 			menuPaneActive: !state.menuPaneActive,
 		}));
 	};
+
+	getStatefulClass = () => (this.state.menuPaneActive ? 'active' : '');
+
+	renderNav = () =>
+		this.navLinks.map(({ name, routerLink, cta }, i) => (
+			<Link href={routerLink} key={i}>
+				<div className={`menu-item ${cta ? 'cta' : ''}`}>{name}</div>
+			</Link>
+		));
 
 	public render(): JSX.Element {
 		return (
@@ -43,16 +59,9 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 							</div>
 
 							<div
-								className={`nav-pane ${
-									this.state.menuPaneActive ? 'active' : ''
-								}`}
+								className={`nav-pane ${this.getStatefulClass()}`}
 							>
-								<nav>
-									<div className="menu-item">Login</div>
-									<div className="menu-item cta shadow-radius-box">
-										Start Your Free Trial
-									</div>
-								</nav>
+								<nav>{this.renderNav()}</nav>
 								<div
 									className="nav-pane__underlay"
 									onClick={this.toggleMenuPane}

@@ -1,4 +1,6 @@
 @import '../../Styles/variables.scss';
+@import '../../Styles/mixins.scss';
+
 @import 'index.responsive.scss';
 
 .placeholder {
@@ -17,13 +19,13 @@
 		background-color: $primary-color;
 		box-shadow: 0 0 20px 10px $black-05;
 		font-family: raleway;
-	
+
 		> .container {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: 8px 0;
-	
+
 			.brand {
 				position: relative;
 				z-index: 1;
@@ -32,32 +34,32 @@
 				color: #fff;
 				cursor: pointer;
 			}
-	
+
 			.menu-toggle {
 				width: 32px;
 				height: 32px;
-	
+
 				svg {
 					fill: #fff;
 				}
 			}
-	
+
 			nav {
 				display: flex;
 				flex-direction: column;
 				font-size: 14px;
-	
+
 				.menu-item {
 					padding: 8px 16px;
 					color: #fff;
-					margin: 0 16px;
 					cursor: pointer;
-	
+
 					&:last-child {
 						margin-right: 0;
 					}
-	
+
 					&.cta {
+						@include shadowRadiusBox();
 						text-align: center;
 						background-color: $secondary-color;
 					}
@@ -65,12 +67,12 @@
 			}
 		}
 	}
-	
+
 	&__sub {
 		padding: 8px 0;
 		background-color: $secondary-color;
 		box-shadow: 0 0 40px 10px $black-05;
-	
+
 		&__title {
 			font-size: 18px;
 			font-weight: bold;
@@ -79,4 +81,3 @@
 		}
 	}
 }
-
