@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { Toast } from '@Components';
 import { IToast } from '@Interfaces';
 
@@ -16,7 +16,7 @@ const errorProps: IToast.IProps = {
 describe('Components', () => {
 	describe('Toast', () => {
 		it('should load successfully', () => {
-			const wrap = shallow(<Toast {...loadingProps} />);
+			const wrap = mount(<Toast {...loadingProps} />);
 
 			expect(wrap.find('h4').text()).toBe('Loading');
 			expect(wrap.find('.quote').exists()).toBeTruthy();
