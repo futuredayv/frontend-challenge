@@ -40,13 +40,18 @@ export class SearchComponent extends React.Component<
 
 	getStatefulClass = () => (this.state.searchActive ? 'active' : '');
 
+	handleSubmit = e => {
+		e.preventDefault();
+		this.toggleSearch();
+	}
+
 	public render(): JSX.Element {
 		const { UpdateFilterOptions } = this.props;
 
 		return (
 			<div className="search">
 				<div className={`search__control ${this.getStatefulClass()}`}>
-					<form onSubmit={e => e.preventDefault()}>
+					<form onSubmit={this.handleSubmit}>
 						<TextBox
 							debounce={300}
 							minLength={3}

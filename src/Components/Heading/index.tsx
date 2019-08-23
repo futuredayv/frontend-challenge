@@ -38,7 +38,7 @@ export class Heading extends React.Component<IHeading.IProps, IHeading.IState> {
 
 	renderNav = () =>
 		this.navLinks.map(({ name, routerLink, cta }, i) => (
-			<Link href={routerLink} key={i}>
+			<Link href={routerLink || ''} key={i}>
 				<div className={`menu-item ${cta ? 'cta' : ''}`}>{name}</div>
 			</Link>
 		));
