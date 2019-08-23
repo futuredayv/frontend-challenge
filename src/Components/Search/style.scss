@@ -6,98 +6,136 @@
     font-family: ubuntu;
     font-size: 14px;
 
-    form {
+    &__toggle {
+        position: fixed;
+        z-index: 1;
+        bottom: 16px;
+        right: 16px;
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px;
+        box-sizing: border-box;
+        border-radius: 50%;
+        overflow: hidden;
+        background-color: $primary-color;
+        box-shadow: 0 0 40px;
 
-        > div {
-            width: 100%;
+        .icon {
+            margin: 0;
+            fill: #fff;
+        }
+    }
+
+    &__control {
+
+        &.active {
+
+            &::before {
+                transform: scaleY(100);
+            }
+
+            form {
+                opacity: 1;
+            }
         }
 
-        .search__input {
+        &::before {
+            content: '';
+            height: 1px;
+            transition: transform 0.3s ease;
+        }
+
+        form {
+            position: absolute;
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            opacity: 0;
+            transition: opacity 0.6s ease;
     
-            input {
+            > div {
                 width: 100%;
-                padding: 8px 16px;
-                border: none;
-                background-color: transparent;
-                color: $secondary-color;
-                font-family: ubuntu;
-                outline: none;
             }
-        
-            button {
-                cursor: pointer;
-                background-color: $primary-color;
-                border: none;
     
-                .icon {
-                    fill: #fff;
-                    margin: 8px;
-                }
-            }
-        }
-    
-        .search__sort {
-            overflow: unset;
-            margin: 16px 0 0;
-
-            .sort__control {
-                position: relative;
+            .search__input {
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
-                cursor: pointer;
-
-                &.dropped {
-
-                    .sort__control__dropdown {
-                        display: block;
-                    }
-                }
-
-                &__selected {
-                    min-width: 180px;
-                    padding: 8px 16px;
-                    color: $secondary-color;
-                }
-
-                &__indicator {
-
-                    .icon {
-                        margin: 8px;
-                        fill: $primary-color;
-                    }
-                }
-
-                &__dropdown {
-                    position: absolute;
-                    z-index: 1;
-                    top: 100%;
-                    left: 0;
-                    display: none;
+        
+                input {
                     width: 100%;
-                    background-color: #fff;
-
-                    .dropdown__item {
-                        padding: 8px 16px;
-                        transition:
-                            background-color 0.2s ease,
-                            color 0.2s ease;
-
-                        &:hover {
-                            background-color: $primary-color;
-                            color: #fff
+                    padding: 8px 16px;
+                    border: none;
+                    background-color: transparent;
+                    color: $secondary-color;
+                    font-family: ubuntu;
+                    outline: none;
+                }
+            
+                button {
+                    cursor: pointer;
+                    background-color: $primary-color;
+                    border: none;
+        
+                    .icon {
+                        fill: #fff;
+                        margin: 8px;
+                    }
+                }
+            }
+        
+            .search__sort {
+                overflow: unset;
+                margin: 16px 0 0;
+    
+                .sort__control {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+    
+                    &.dropped {
+    
+                        .sort__control__dropdown {
+                            display: block;
                         }
-
-                        // &.selected {
-                        //     background-color: $primary-color;
-                        //     color: #fff;
-                        // }
+                    }
+    
+                    &__selected {
+                        min-width: 180px;
+                        padding: 8px 16px;
+                        color: $secondary-color;
+                    }
+    
+                    &__indicator {
+    
+                        .icon {
+                            margin: 8px;
+                            fill: $primary-color;
+                        }
+                    }
+    
+                    &__dropdown {
+                        position: absolute;
+                        z-index: 1;
+                        top: 100%;
+                        left: 0;
+                        display: none;
+                        width: 100%;
+                        background-color: #fff;
+    
+                        .dropdown__item {
+                            padding: 8px 16px;
+                            transition:
+                                background-color 0.2s ease,
+                                color 0.2s ease;
+    
+                            &:hover {
+                                background-color: $primary-color;
+                                color: #fff
+                            }
+                        }
                     }
                 }
             }

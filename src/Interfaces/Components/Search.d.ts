@@ -8,7 +8,9 @@ declare module ISearch {
 
     export interface IOwnProps extends Props<{}> {}
     
-    export interface IState { }
+    export interface IState {
+        searchActive: boolean;
+    }
 
     export interface IStateProps {
         filterOptions?: IMovies.IFilterOptions;

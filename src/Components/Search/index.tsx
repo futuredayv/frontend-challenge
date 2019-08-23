@@ -12,6 +12,7 @@ import './style.scss';
 import { ISearch, IStore } from '@Interfaces';
 import { TextBox, DropDown } from '@Components';
 import { SearchActions } from '@Actions';
+import { SearchIcon } from '../../Assets/icons';
 //#endregion Interface Imports
 
 export class SearchComponent extends React.Component<
@@ -20,6 +21,10 @@ export class SearchComponent extends React.Component<
 > {
 	constructor(props: ISearch.IProps) {
 		super(props);
+
+		this.state = {
+			searchActive: false,
+		};
 	}
 
 	sortOptions = [
@@ -29,26 +34,40 @@ export class SearchComponent extends React.Component<
 		{ name: 'Year DESC', value: 'releaseYear_DESC' },
 	];
 
+	toggleSearch = () =>
+		this.setState(state => ({ searchActive: !state.searchActive }));
+
 	public render(): JSX.Element {
 		const { UpdateFilterOptions } = this.props;
+		const { searchActive } = this.state;
 
 		return (
 			<div className="search">
-				<form onSubmit={e => e.preventDefault()}>
-					<TextBox
-						debounce={300}
-						minLength={3}
-						onChange={search => UpdateFilterOptions({ search })}
-					/>
+				<div
+					className={`search__control ${
+						searchActive ? 'active' : ''
+					}`}
+				>
+					<form onSubmit={e => e.preventDefault()}>
+						<TextBox
+							debounce={300}
+							minLength={3}
+							onChange={search => UpdateFilterOptions({ search })}
+						/>
 
-					<DropDown
-						items={this.sortOptions}
-						onChange={({ value }) => {
-							const [by, ordering] = value.split('_');
-							UpdateFilterOptions({ sort: { by, ordering } });
-						}}
-					/>
-				</form>
+						<DropDown
+							items={this.sortOptions}
+							onChange={({ value }) => {
+								const [by, ordering] = value.split('_');
+								UpdateFilterOptions({ sort: { by, ordering } });
+							}}
+						/>
+					</form>
+				</div>
+
+				<div className="search__toggle" onClick={this.toggleSearch}>
+					<SearchIcon className="icon" />
+				</div>
 			</div>
 		);
 	}
