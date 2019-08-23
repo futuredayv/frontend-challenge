@@ -34,20 +34,18 @@ export class SearchComponent extends React.Component<
 		{ name: 'Year DESC', value: 'releaseYear_DESC' },
 	];
 
-	toggleSearch = () =>
-		this.setState(state => ({ searchActive: !state.searchActive }));
+	toggleSearch = () => {
+		return this.setState(state => ({ searchActive: !state.searchActive }));
+	};
+
+	getStatefulClass = () => (this.state.searchActive ? 'active' : '');
 
 	public render(): JSX.Element {
 		const { UpdateFilterOptions } = this.props;
-		const { searchActive } = this.state;
 
 		return (
 			<div className="search">
-				<div
-					className={`search__control ${
-						searchActive ? 'active' : ''
-					}`}
-				>
+				<div className={`search__control ${this.getStatefulClass()}`}>
 					<form onSubmit={e => e.preventDefault()}>
 						<TextBox
 							debounce={300}

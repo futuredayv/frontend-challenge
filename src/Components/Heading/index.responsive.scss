@@ -59,9 +59,25 @@
     
     @media (min-width: 768px) {
 
-        .header__main .container {
-            padding: 16px 0;
+        .placeholder {
+            height: 130px;
         }
+
+        .header {
+
+            &__main .container {
+                padding: 16px 0;
+            }
+
+            &__sub {
+                padding: 16px 0;
+    
+                &__title {
+                    font-size: 24px;
+                }
+            }
+        }
+
 
         .brand {
             font-size: 32px;
@@ -77,15 +93,6 @@
                 flex-direction: unset;
             }
         }
-
-        .header__sub {
-            padding: 16px 0;
-
-            &__title {
-                font-size: 24px;
-            }
-        }
-
     }
     
     
