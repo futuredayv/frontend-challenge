@@ -1,17 +1,15 @@
-import { ActionConsts } from "@Definitions";
+import { ActionConsts } from '@Definitions';
 
 /**
  * ACTIONS
-*/
+ */
 export const SeriesActions = {
-	Map: (payload: any) => (
-		{
-			payload,
-			type: ActionConsts.Series.SetReducer
-		}
-	),
+	Map: (payload: any) => ({
+		payload,
+		type: ActionConsts.Series.SetReducer,
+	}),
 
 	Reset: () => ({
-		type: ActionConsts.Series.ResetReducer
-	})
-}
+		type: ActionConsts.Series.ResetReducer,
+	}),
+};

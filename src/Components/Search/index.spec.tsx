@@ -9,7 +9,7 @@ jest.useFakeTimers();
 
 describe('Components', () => {
 	describe('Search', () => {
-		let mockFn = jest.fn();
+		const mockFn = jest.fn();
 
 		afterEach(() => {
 			jest.resetAllMocks();

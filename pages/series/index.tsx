@@ -16,7 +16,10 @@ import './style.scss';
 import { ISeries, IStore } from '@Interfaces';
 //#endregion Interface Imports
 
-export class SeriesPage extends React.Component<ISeries.IProps, ISeries.IState> {
+export class SeriesPage extends React.Component<
+	ISeries.IProps,
+	ISeries.IState
+> {
 	constructor(props: ISeries.IProps) {
 		super(props);
 	}

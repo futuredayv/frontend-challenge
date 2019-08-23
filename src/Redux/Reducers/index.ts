@@ -9,8 +9,8 @@ import { MoviesReducer } from './movies';
 import { HomeReducer } from './home';
 
 export default combineReducers({
-    series: SeriesReducer,
-    search: SearchReducer,
-    movies: MoviesReducer,
+	series: SeriesReducer,
+	search: SearchReducer,
+	movies: MoviesReducer,
 	home: HomeReducer,
 });

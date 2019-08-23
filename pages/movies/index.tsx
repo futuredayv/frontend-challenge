@@ -16,7 +16,10 @@ import './style.scss';
 import { IMovies, IStore } from '@Interfaces';
 //#endregion Interface Imports
 
-export class MoviesPage extends React.Component<IMovies.IProps, IMovies.IState> {
+export class MoviesPage extends React.Component<
+	IMovies.IProps,
+	IMovies.IState
+> {
 	constructor(props: IMovies.IProps) {
 		super(props);
 

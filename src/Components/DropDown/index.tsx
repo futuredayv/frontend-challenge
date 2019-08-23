@@ -53,7 +53,7 @@ class DropDown extends React.Component<IDropDown.IProps, IDropDown.IState> {
 
 	handleOutsideClick = ({ target }: MouseEvent) => {
 		const { current } = this.controlRef;
-		if (current && !current!.contains(target as Node)) {
+		if (current && !current.contains(target as Node)) {
 			this.setState({ isDroppedDown: false });
 		}
 	};

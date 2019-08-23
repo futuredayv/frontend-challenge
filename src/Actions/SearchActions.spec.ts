@@ -13,26 +13,24 @@ describe('Actions', () => {
 		});
 
 		it('UpdateFilterOptions test against store', () => {
-            const payload = {
-                search: 'john',
-                sort: {
-                    by: 'title',
-                    ordering: 'ASC',
-                },
-            };
+			const payload = {
+				search: 'john',
+				sort: {
+					by: 'title',
+					ordering: 'ASC',
+				},
+			};
 
 			const expectedActions = [
 				{
-                    type: ActionConsts.Search.UpdateFilterOptions,
-                    payload
+					type: ActionConsts.Search.UpdateFilterOptions,
+					payload,
 				},
 			];
 
-			store.dispatch(
-				SearchActions.UpdateFilterOptions(payload),
-			);
+			store.dispatch(SearchActions.UpdateFilterOptions(payload));
 
 			expect(store.getActions()).toEqual(expectedActions);
-        });
+		});
 	});
 });

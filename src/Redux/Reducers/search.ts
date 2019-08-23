@@ -8,17 +8,20 @@ import { IAction, ISearch } from '@Interfaces';
 
 /**
  * INITIAL_STATE
-*/
-const INITIAL_STATE: ISearch.IStateProps = { };
+ */
+const INITIAL_STATE: ISearch.IStateProps = {};
 
 type IMapPayload = ISearch.Actions.IMapPayload;
 
-export const SearchReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {
+export const SearchReducer = (
+	state = INITIAL_STATE,
+	action: IAction<IMapPayload>,
+) => {
 	switch (action.type) {
 		case ActionConsts.Search.SetReducer:
 			return {
 				...state,
-				...action.payload
+				...action.payload,
 			};
 
 		case ActionConsts.Search.ResetReducer:

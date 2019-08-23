@@ -8,12 +8,12 @@ declare namespace IHeading {
 	}
 
 	export interface IState {
-		menuPaneActive?: boolean
+		menuPaneActive?: boolean;
 	}
 
 	export interface INavLink {
 		name: string;
 		routerLink?: string;
-		cta?: boolean
+		cta?: boolean;
 	}
 }

@@ -9,7 +9,7 @@ describe('Reducers', () => {
 				MoviesReducer(INITIAL_STATE, {
 					type: ActionConsts.Movies.FetchJSON,
 				}),
-			).toMatchSnapshot()
+			).toMatchSnapshot();
 		});
 
 		it('should handle FetchJSON_SUCCESS', () => {
@@ -19,9 +19,9 @@ describe('Reducers', () => {
 					payload: {
 						movies: [{ title: 'John Wick' }],
 						series: [{ title: 'Sherlock' }],
-					}
+					},
 				}),
-			).toMatchSnapshot()
+			).toMatchSnapshot();
 		});
 
 		it('should handle Fetch_JSON_FAIL', () => {
@@ -31,9 +31,9 @@ describe('Reducers', () => {
 					payload: {
 						isLoading: false,
 						err: 'Oops! Something Went Wrong.',
-					}
+					},
 				}),
-			).toMatchSnapshot()
+			).toMatchSnapshot();
 		});
 
 		it('should handle UpdateFilterOptions', () => {
@@ -48,7 +48,7 @@ describe('Reducers', () => {
 						},
 					},
 				}),
-			).toMatchSnapshot()
+			).toMatchSnapshot();
 		});
 	});
 });

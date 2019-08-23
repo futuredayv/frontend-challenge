@@ -21,7 +21,9 @@ export const HomeActions = {
 		type: ActionConsts.Home.ResetReducer,
 	}),
 
-	GetApod: (payload: IHomePage.Actions.IGetApodPayload) => async (dispatch: Dispatch) => {
+	GetApod: (payload: IHomePage.Actions.IGetApodPayload) => async (
+		dispatch: Dispatch,
+	) => {
 		const result = await PlanetaryService.GetPlanetImage({
 			params: payload.params,
 		});

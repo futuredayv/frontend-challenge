@@ -2,10 +2,9 @@
 import { Props } from 'prop-types';
 //#endregion Global Imports
 
-declare module ILayout {
-    export interface IProps extends Props<{}> {
-        title: string;
-        children?;
-    }
-
+declare namespace ILayout {
+	export interface IProps extends Props<{}> {
+		title: string;
+		children?;
+	}
 }

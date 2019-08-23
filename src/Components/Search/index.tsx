@@ -43,7 +43,7 @@ export class SearchComponent extends React.Component<
 	handleSubmit = e => {
 		e.preventDefault();
 		this.toggleSearch();
-	}
+	};
 
 	public render(): JSX.Element {
 		const { UpdateFilterOptions } = this.props;

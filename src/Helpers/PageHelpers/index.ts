@@ -1,6 +1,6 @@
 import { DemoResponse, IMovies } from '@Interfaces';
 
-export declare module PageHelpers {
+export declare namespace PageHelpers {
 	type PageHelper = (
 		pageData: DemoResponse[],
 		filterOptions: IMovies.IFilterOptions,

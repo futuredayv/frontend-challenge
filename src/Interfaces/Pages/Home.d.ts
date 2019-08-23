@@ -25,8 +25,10 @@ declare namespace IHomePage {
 
 		export interface IMapResponse {}
 
-		export interface IGetApodPayload extends PlanetaryModel.GetApodPayload {}
+		export interface IGetApodPayload
+			extends PlanetaryModel.GetApodPayload {}
 
-		export interface IGetApodResponse extends PlanetaryModel.GetApodResponse {}
+		export interface IGetApodResponse
+			extends PlanetaryModel.GetApodResponse {}
 	}
 }

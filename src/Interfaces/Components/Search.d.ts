@@ -3,25 +3,25 @@ import { Props } from 'prop-types';
 import { IMovies } from '@Interfaces/Pages/Movies';
 //#endregion Global Imports
 
-declare module ISearch {
-    export type IProps = IOwnProps & IStateProps & IDispatchProps;
+declare namespace ISearch {
+	export type IProps = IOwnProps & IStateProps & IDispatchProps;
 
-    export interface IOwnProps extends Props<{}> {}
-    
-    export interface IState {
-        searchActive: boolean;
-    }
+	export interface IOwnProps extends Props<{}> {}
 
-    export interface IStateProps {
-        filterOptions?: IMovies.IFilterOptions;
-    }
-
-    export interface IDispatchProps {
-        UpdateFilterOptions(payload: any): { }
+	export interface IState {
+		searchActive: boolean;
 	}
 
-    module Actions {
-	    export interface IMapPayload { }
-        export interface IMapResponse { }
+	export interface IStateProps {
+		filterOptions?: IMovies.IFilterOptions;
+	}
+
+	export interface IDispatchProps {
+		UpdateFilterOptions(payload: any): {};
+	}
+
+	namespace Actions {
+		export interface IMapPayload {}
+		export interface IMapResponse {}
 	}
 }

@@ -32,7 +32,7 @@ export const MoviesActions = {
 		dispatch({ type: ActionConsts.Movies.FetchJSON });
 
 		try {
-			const result = await fetch(base+json);
+			const result = await fetch(base + json);
 			const { entries } = await result.json();
 
 			const [movies, series] = groupByProgramType(entries);

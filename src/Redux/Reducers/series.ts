@@ -8,17 +8,20 @@ import { IAction, ISeries } from '@Interfaces';
 
 /**
  * INITIAL_STATE
-*/
-const INITIAL_STATE: ISeries.IStateProps = { };
+ */
+const INITIAL_STATE: ISeries.IStateProps = {};
 
 type IMapPayload = ISeries.Actions.IMapPayload;
 
-export const SeriesReducer = (state = INITIAL_STATE, action: IAction<IMapPayload>) => {
+export const SeriesReducer = (
+	state = INITIAL_STATE,
+	action: IAction<IMapPayload>,
+) => {
 	switch (action.type) {
 		case ActionConsts.Series.SetReducer:
 			return {
 				...state,
-				...action.payload
+				...action.payload,
 			};
 
 		case ActionConsts.Series.ResetReducer:

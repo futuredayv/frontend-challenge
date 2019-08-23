@@ -12,10 +12,10 @@ describe('Components', () => {
 				</article>
 			);
 
-            const wrap = mount(<Layout title="TEST">{children}</Layout>);
-            
-            expect(wrap.find('Heading').prop('title')).toBe('TEST');
-            expect(wrap.find('main').contains(children)).toBeTruthy();
+			const wrap = mount(<Layout title="TEST">{children}</Layout>);
+
+			expect(wrap.find('Heading').prop('title')).toBe('TEST');
+			expect(wrap.find('main').contains(children)).toBeTruthy();
 		});
 	});
 });

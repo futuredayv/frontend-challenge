@@ -4,4 +4,3 @@ export { MoviesActions } from './MoviesActions';
 export { SearchActions } from './SearchActions';
 
 export { SeriesActions } from './SeriesActions';
-

@@ -6,13 +6,15 @@ import { HomeReducer } from './home';
 describe('Reducers', () => {
 	describe('Home Reducer', () => {
 		it('should return the initial state', () => {
-			expect(HomeReducer(undefined, {} as IAction<IHomePage.IDispatchProps>)).toEqual({
+			expect(
+				HomeReducer(undefined, {} as IAction<IHomePage.IDispatchProps>),
+			).toEqual({
 				home: {
 					version: 1,
 				},
 			});
 		});
-	
+
 		it('should handle SetReducer', () => {
 			expect(
 				HomeReducer([], {
@@ -25,7 +27,7 @@ describe('Reducers', () => {
 				version: 2,
 			});
 		});
-	
+
 		it('should handle ResetReducer', () => {
 			expect(
 				HomeReducer([], {
@@ -37,5 +39,5 @@ describe('Reducers', () => {
 				},
 			});
 		});
-	})
+	});
 });

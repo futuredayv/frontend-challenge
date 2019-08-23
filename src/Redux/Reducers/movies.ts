@@ -18,9 +18,9 @@ export const INITIAL_STATE: IMovies.IStateProps = {
 		search: '',
 		sort: {
 			by: 'title',
-			ordering: 'ASC'
-		}
-	}
+			ordering: 'ASC',
+		},
+	},
 };
 
 type IMapPayload = IMovies.Actions.IMapPayload;
@@ -48,13 +48,13 @@ export const MoviesReducer = (
 		case ActionConsts.Movies.FetchJSON_SUCCESS:
 			return {
 				...state,
-				...action.payload
+				...action.payload,
 			};
 
 		case ActionConsts.Movies.FetchJSON_FAIL:
 			return {
 				...state,
-				...action.payload
+				...action.payload,
 			};
 
 		case ActionConsts.Search.UpdateFilterOptions:
@@ -64,9 +64,9 @@ export const MoviesReducer = (
 				...state,
 				filterOptions: {
 					...state.filterOptions,
-					...filterOptions
-				}
-			}
+					...filterOptions,
+				},
+			};
 
 		default:
 			return state;

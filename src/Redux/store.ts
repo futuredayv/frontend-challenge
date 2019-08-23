@@ -9,5 +9,9 @@ import Reducers from './Reducers';
 //#endregion Interface Imports
 
 export default () => {
-	return createStore(Reducers, {}, composeWithDevTools(applyMiddleware(thunkMiddleware)));
+	return createStore(
+		Reducers,
+		{},
+		composeWithDevTools(applyMiddleware(thunkMiddleware)),
+	);
 };
