@@ -59,6 +59,10 @@
     
     @media (min-width: 768px) {
 
+        .header__main .container {
+            padding: 16px 0;
+        }
+
         .brand {
             font-size: 32px;
         }
@@ -74,9 +78,14 @@
             }
         }
 
-        .header__sub__title {
-            font-size: 24px;
+        .header__sub {
+            padding: 16px 0;
+
+            &__title {
+                font-size: 24px;
+            }
         }
+
     }
     
     
